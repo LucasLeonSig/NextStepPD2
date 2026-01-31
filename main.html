@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYTaxi AI | Optimización de Demanda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">NextStep<span class="dot">.ai</span></div>
+        <div class="nav-links">
+            <a href="#features">Tecnología</a>
+            <a href="#calculator">Calculadora</a>
+            <a href="#contact" class="btn-nav">Empezar ahora</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content hidden">
+            <span class="badge">NUEVA YORK • INTELIGENCIA EN TIEMPO REAL</span>
+            <h1>Domina las calles.<br>Predice la <span class="highlight">demanda.</span></h1>
+            <p>Deja de buscar pasajeros a ciegas. Nuestro algoritmo conecta tu taxi con las zonas de alta demanda antes de que sucedan.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">Ver Demo</button>
+                <button class="btn-secondary">Saber más</button>
+            </div>
+        </div>
+        <div class="hero-bg-effect"></div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title hidden">¿Por qué usar NYTaxi.ai?</h2>
+            <div class="grid">
+                <div class="card hidden">
+                        <div id="contenedor-mapa" class="hidden" style="width: 100%; height: 500px;"></div>                
+                <div class="card hidden">
+                        <div id="contenedor-mapa" class="hidden" style="width: 100%; height: 500px;"></div>                
+                                      
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="calculator-box hidden">
+                <h2>Calcula tu Potencial</h2>
+                <p>¿Cuántas horas conduces al día?</p>
+                
+                <div class="input-group">
+                    <input type="range" id="hoursInput" min="4" max="14" value="8" step="1">
+                    <span id="hoursValue">8 Horas</span>
+                </div>
+
+                <div class="result-display">
+                    <p>Ganancia extra estimada al mes:</p>
+                    <h3 id="earningsResult">$1,200</h3>
+                    <small>*Basado en un incremento del 25% de eficiencia.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 NextStep AI. Hecho para los conductores de NYC.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+
+</body>
+</html>
