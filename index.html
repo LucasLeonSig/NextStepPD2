@@ -12,7 +12,8 @@
     <nav class="navbar">
         <div class="logo">NextStep<span class="dot">.ai</span></div>
         <div class="nav-links">
-            <a href="#features">Tecnología</a>
+            <a href="#context">Análisis</a>
+            <a href="#features">Mapas Comparativos</a>
             <a href="#calculator">Calculadora</a>
             <a href="#contact" class="btn-nav">Empezar ahora</a>
         </div>
@@ -20,24 +21,94 @@
 
     <header class="hero">
         <div class="hero-content hidden">
-            <span class="badge">NUEVA YORK • INTELIGENCIA EN TIEMPO REAL</span>
+            <span class="badge">NUEVA YORK • INTELIGENCIA DE DATOS</span>
             <h1>Domina las calles.<br>Predice la <span class="highlight">demanda.</span></h1>
-            <p>Deja de buscar pasajeros a ciegas. Nuestro algoritmo conecta tu taxi con las zonas de alta demanda antes de que sucedan.</p>
+            <p>Deja de patrullar en círculos. Visualiza dónde están realmente los pasajeros y aumenta tu rentabilidad.</p>
             <div class="hero-buttons">
-                <button class="btn-primary">Ver Demo</button>
-                <button class="btn-secondary">Saber más</button>
+                <a href="#features" class="btn-primary">Ver Comparativa</a>
+                <a href="#context" class="btn-secondary">Leer Análisis</a>
             </div>
         </div>
         <div class="hero-bg-effect"></div>
     </header>
 
-    <section id="features" class="features">
+    <section id="context" class="context-section">
         <div class="container">
-            <h2 class="section-title hidden">¿Por qué usar NYTaxi.ai?</h2>
-            <div class="grid">
-                <div class="card hidden">
-                        <div id="contenedor-mapa" class="hidden" style="width: 100%; height: 500px;"></div>                
-                                      
+            <div class="section-header hidden">
+                <span class="badge">SITUACIÓN ACTUAL</span>
+                <h2>El Desafío de la <span class="highlight">Movilidad en NYC</span></h2>
+                <p>Nueva York es un entorno de altísima competencia donde la intuición ya no es suficiente.</p>
+            </div>
+
+            <div class="context-grid">
+                <div class="context-card hidden">
+                    <div class="card-icon">🏙️</div>
+                    <h3>El Ecosistema</h3>
+                    <p>
+                        La demanda en NYC no es lineal. Depende del clima, eventos y zonas horarias. 
+                        El modelo tradicional de "buscar pasajeros visualmente" deja demasiados tiempos muertos.
+                    </p>
+                </div>
+
+                <div class="context-card hidden">
+                    <div class="card-icon">⚡</div>
+                    <h3>Regulación vs. Algoritmia</h3>
+                    <p>
+                        Mientras el taxi depende del azar, las VTCs (Uber/Lyft) usan algoritmos predictivos para posicionar 
+                        sus coches antes de que el cliente pida el viaje.
+                    </p>
+                </div>
+
+                <div class="context-card warning-card hidden">
+                    <div class="card-icon">⚠️</div>
+                    <h3>El Dinero que Pierdes</h3>
+                    <p>
+                        La ineficiencia del "patrullaje reactivo" genera pérdidas masivas.
+                    </p>
+                    <div class="stat-box">
+                        <span class="big-number">65%</span>
+                        <span class="stat-desc">Del tiempo circulando vacío por falta de información estratégica.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header hidden">
+                <span class="badge">VISUALIZACIÓN DE OPORTUNIDAD</span>
+                <h2 class="section-title">El mapa de la <span class="highlight">Desigualdad</span></h2>
+                
+                <div class="comparison-text">
+                    <p>
+                        Observa la diferencia crítica abajo. A la izquierda, los <strong>Taxis</strong> se canibalizan entre sí saturando Manhattan y los Aeropuertos. 
+                        A la derecha, las <strong>Apps</strong> dominan Brooklyn, Queens y zonas residenciales.
+                    </p>
+                    <p class="highlight-text">
+                        Hay miles de trayectos desatendidos fuera del centro. <br>
+                        <strong>Ahí es donde estás perdiendo dinero hoy mismo.</strong>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="features-grid comparison-grid">
+                <div class="card map-card hidden">
+                    <div class="map-header">
+                        <h3>🚖 Saturación Taxis</h3>
+                        <span class="map-tag taxi-tag">Alta Competencia</span>
+                    </div>
+                    <div id="mapa-taxi" style="width: 100%; height: 500px;"></div>
+                    <p class="map-caption">Concentración excesiva en Manhattan (Midtown/FiDi).</p>                
+                </div>
+
+                <div class="card map-card hidden">
+                    <div class="map-header">
+                        <h3>📱 Expansión Apps</h3>
+                        <span class="map-tag uber-tag">Oportunidad</span>
+                    </div>
+                    <div id="mapa-uber" style="width: 100%; height: 500px;"></div>
+                    <p class="map-caption">Cobertura total en zonas residenciales desatendidas.</p>                
                 </div>
             </div>
         </div>
@@ -47,17 +118,17 @@
         <div class="container">
             <div class="calculator-box hidden">
                 <h2>Calcula tu Potencial</h2>
-                <p>¿Cuántas horas conduces al día?</p>
+                <p>Si eliminas los tiempos muertos usando nuestra data:</p>
                 
                 <div class="input-group">
                     <input type="range" id="hoursInput" min="4" max="14" value="8" step="1">
-                    <span id="hoursValue">8 Horas</span>
+                    <span id="hoursValue">8 Horas/día</span>
                 </div>
 
                 <div class="result-display">
                     <p>Ganancia extra estimada al mes:</p>
                     <h3 id="earningsResult">$1,200</h3>
-                    <small>*Basado en un incremento del 25% de eficiencia.</small>
+                    <small>*Basado en capturar solo 2 viajes extra diarios en zonas de alta demanda.</small>
                 </div>
             </div>
         </div>
@@ -65,12 +136,12 @@
 
     <footer>
         <div class="container footer-content">
-            <p>&copy; 2026 NextStep AI. Hecho para los conductores de NYC.</p>
+            <p>&copy; 2026 NextStep AI. Inteligencia para conductores.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>

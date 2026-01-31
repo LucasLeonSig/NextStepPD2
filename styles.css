@@ -1,19 +1,18 @@
-/* Variables de Color: Estética "Dark Mode & Taxi Yellow" */
+/* Variables de Color */
 :root {
     --bg-dark: #0a0a0a;
     --bg-card: #141414;
     --text-main: #ffffff;
     --text-muted: #a0a0a0;
     --taxi-yellow: #F7C52B;
-    --taxi-yellow-glow: rgba(247, 197, 43, 0.4);
+    --taxi-yellow-glow: rgba(247, 197, 43, 0.5); /* Glow más intenso */
+    --uber-purple: #a32bf7;
+    --uber-purple-glow: rgba(163, 43, 247, 0.5);
     --font-main: 'Space Grotesk', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
     background-color: var(--bg-dark);
@@ -31,18 +30,13 @@ body {
     padding: 20px 5%;
     position: fixed;
     width: 100%;
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(10, 10, 10, 0.9);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
+.logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; }
 .dot { color: var(--taxi-yellow); }
-
 .nav-links a {
     color: var(--text-main);
     text-decoration: none;
@@ -50,176 +44,235 @@ body {
     font-size: 0.9rem;
     transition: color 0.3s;
 }
-
 .nav-links a:hover { color: var(--taxi-yellow); }
-
 .btn-nav {
-    border: 1px solid var(--text-main);
-    padding: 8px 20px;
-    border-radius: 50px;
-}
-
-.btn-nav:hover {
     background: var(--taxi-yellow);
-    border-color: var(--taxi-yellow);
-    color: var(--bg-dark);
+    color: black !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--taxi-yellow-glow);
 }
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    padding: 100px 5% 50px;
     position: relative;
-    padding: 0 20px;
+    overflow: hidden;
+    
+    background: 
+        /* Capa 1: Degradado oscuro para que el texto se lea bien */
+        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.4) 100%),
+        /* Capa 2: La imagen */
+        url('./taxi.jpeg') center/cover no-repeat fixed;
 }
-
-.hero h1 {
-    font-size: 4rem;
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.highlight {
-    color: var(--taxi-yellow);
-    text-shadow: 0 0 20px var(--taxi-yellow-glow);
-}
-
-.hero p {
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-}
-
+.hero-content { max-width: 600px; z-index: 2; }
 .badge {
-    display: inline-block;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: var(--taxi-yellow);
-    border: 1px solid rgba(247, 197, 43, 0.3);
-    padding: 5px 15px;
+    background: rgba(255,255,255,0.1);
+    padding: 5px 12px;
     border-radius: 20px;
-    margin-bottom: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--taxi-yellow);
+    font-weight: 700;
+    text-transform: uppercase;
 }
+h1 { font-size: 4rem; line-height: 1.1; margin: 25px 0; }
+.highlight { color: var(--taxi-yellow); text-shadow: 0 0 25px var(--taxi-yellow-glow); }
+.hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 35px; }
 
-/* Botones */
+/* Botones con efectos */
+.btn-primary, .btn-secondary {
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 .btn-primary {
     background: var(--taxi-yellow);
-    color: var(--bg-dark);
-    padding: 15px 40px;
-    border: none;
-    border-radius: 5px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    color: black;
+    margin-right: 15px;
+    border: 1px solid var(--taxi-yellow);
 }
-
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px var(--taxi-yellow-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px var(--taxi-yellow-glow);
 }
-
 .btn-secondary {
     background: transparent;
-    color: var(--text-main);
-    padding: 15px 40px;
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-left: 10px;
+    color: white;
+}
+.btn-secondary:hover {
+    border-color: white;
+    background: rgba(255,255,255,0.05);
 }
 
-/* Features Grid */
-.features { padding: 100px 5%; }
-.container { max-width: 1500px; margin: 0 auto; }
-.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+.hero-bg-effect {
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(247,197,43,0.1) 0%, rgba(0,0,0,0) 70%);
+    filter: blur(80px);
+    z-index: 1;
+}
 
-.grid {
+/* Animaciones de entrada */
+.hidden { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+.show { opacity: 1; transform: translateY(0); }
+
+/* Contexto */
+.context-section { padding: 100px 5%; background-color: #0d0d0d; }
+.section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin: 0 auto 60px; }
+.section-header h2 { font-size: 2.5rem; margin: 20px 0; }
+.context-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
+
+/* Tarjetas con HOVER MEJORADO */
+.context-card {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex; flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+}
+.context-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--taxi-yellow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra profunda */
+}
+
+.card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.context-card h3 { margin-bottom: 15px; font-size: 1.3rem; color: white; }
+.context-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; flex-grow: 1; }
+
+.warning-card { 
+    background: linear-gradient(145deg, #1a1a1a, #222); 
+    border: 1px solid rgba(247, 197, 43, 0.1); 
+}
+.warning-card:hover {
+    box-shadow: 0 0 20px rgba(247, 197, 43, 0.15);
+}
+
+.stat-box { margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+.big-number { display: block; font-size: 3.5rem; font-weight: 700; color: var(--taxi-yellow); line-height: 1; }
+.stat-desc { font-size: 0.85rem; color: var(--text-main); opacity: 0.8; }
+
+/* SECCIÓN MAPAS COMPARATIVOS */
+.features-section { padding: 80px 5%; }
+
+/* Texto comparativo destacado */
+.comparison-text {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ddd;
+}
+.highlight-text {
+    margin-top: 15px;
+    color: var(--taxi-yellow);
+    font-size: 1.2rem;
+    border-left: 3px solid var(--taxi-yellow);
+    padding-left: 15px;
+    display: inline-block;
+    text-align: left;
+}
+
+.comparison-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    gap: 40px;
+    width: 100%;
 }
 
-.card {
+/* Tarjetas de Mapa con HOVER */
+.map-card {
     background: var(--bg-card);
     padding: 20px;
     border-radius: 15px;
     border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.3s, border-color 0.3s;
+    transition: all 0.4s ease;
+    overflow: hidden; /* Para contener el glow */
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.map-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* Hover específico para Taxi */
+.map-card:first-child:hover {
     border-color: var(--taxi-yellow);
+    box-shadow: 0 0 30px rgba(247, 197, 43, 0.15);
+}
+/* Hover específico para Uber */
+.map-card:nth-child(2):hover {
+    border-color: var(--uber-purple);
+    box-shadow: 0 0 30px rgba(163, 43, 247, 0.15);
 }
 
-.icon { font-size: 2rem; margin-bottom: 20px; }
-.card h3 { margin-bottom: 15px; font-size: 1.5rem; }
-.card p { color: var(--text-muted); }
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.map-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.taxi-tag { background: rgba(247, 197, 43, 0.2); color: var(--taxi-yellow); }
+.uber-tag { background: rgba(163, 43, 247, 0.2); color: #c06bf8; }
+
+.map-caption {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
 
 /* Calculadora */
-.calculator-section {
-    padding: 100px 5%;
-    background: linear-gradient(180deg, var(--bg-dark) 0%, #111 100%);
-}
-
-.calculator-box {
-    background: #1a1a1a;
-    padding: 60px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+.calculator-section { padding: 100px 5%; background: linear-gradient(180deg, var(--bg-dark) 0%, #111 100%); }
+.calculator-box { 
+    background: #1a1a1a; 
+    padding: 60px; 
+    border-radius: 20px; 
+    text-align: center; 
+    max-width: 800px; 
+    margin: 0 auto; 
     border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s;
 }
+.calculator-box:hover { transform: scale(1.02); border-color: var(--taxi-yellow); }
 
-.input-group {
-    margin: 40px 0;
-}
+.input-group { margin: 40px 0; }
+input[type=range] { width: 100%; max-width: 400px; accent-color: var(--taxi-yellow); height: 6px; cursor: pointer; }
+.result-display h3 { font-size: 4rem; color: var(--taxi-yellow); margin: 10px 0; }
+footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
 
-input[type=range] {
-    width: 100%;
-    max-width: 400px;
-    accent-color: var(--taxi-yellow);
-    height: 6px;
-    cursor: pointer;
-}
-
-#earningsResult {
-    font-size: 4rem;
-    color: var(--taxi-yellow);
-    margin: 10px 0;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    color: var(--text-muted);
-}
-
-/* Animaciones y Utilidades */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive */
+/* Mobile fixes */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .hero-buttons { display: flex; flex-direction: column; gap: 15px; }
-    .btn-secondary { margin-left: 0; }
+    h1 { font-size: 2.5rem; }
+    .nav-links { display: none; }
+    .comparison-grid { grid-template-columns: 1fr; }
+    .highlight-text { text-align: center; border-left: none; border-top: 2px solid var(--taxi-yellow); padding-top: 10px; }
 }
