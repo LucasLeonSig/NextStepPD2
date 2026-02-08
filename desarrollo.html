@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables y Desarrollo | NextStep.ai - Modelo Predictivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="logo">
+            <a href="index.html" aria-label="Ir al inicio">NextStep<span class="dot">.</span><span class="ai-text">ai</span></a>
+        </div>
+        
+        <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+        
+        <div class="nav-links">
+            <a href="index.html" aria-label="Ir al inicio">Inicio</a>
+            <a href="contexto.html" aria-label="Ver contexto y análisis">Contexto</a>
+            <a href="propuesta.html" aria-label="Ver nuestra propuesta">Propuesta</a>
+            <a href="mercado.html" aria-label="Análisis de mercado">Mercado</a>
+            <a href="desarrollo.html" class="active" aria-current="page">Variables predictivas</a>
+            <a href="escalado.html" aria-label="Propuesta de desarrollo y escalado">Escalado</a>
+            <a href="index.html#features" aria-label="Ver mapas interactivos">Mapas</a>
+            <a href="index.html#calculator" aria-label="Usar calculadora de ganancias">Calculadora</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="page-header-content hidden">
+                <span class="badge" role="text">MODELO & ROADMAP</span>
+                <h1>Variables Predictivas y <span class="highlight">Límites</span></h1>
+                <p class="lead">Qué variables alimentan el modelo, qué límites imponemos y cómo planificamos el escalado del producto.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section" id="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <aside class="content-sidebar" role="complementary">
+                    <nav class="content-nav" aria-label="Navegación de contenido">
+                        <a href="#variables" class="nav-item active" aria-current="section">Variables y límites</a>
+                        <a href="#vehiculos" class="nav-item">4.1 Vehículos</a>
+                        <a href="#meteo" class="nav-item">4.2 Meteorología</a>
+                        <a href="#mta" class="nav-item">4.3 Incidencias (MTA)</a>
+                        <a href="#latente" class="nav-item">4.4 Demanda latente</a>
+                        <a href="#propinas" class="nav-item">4.5 Propinas</a>
+                        <a href="#otras" class="nav-item">4.6 Otras fuentes</a>
+                        <a href="#citas" class="nav-item">Citas</a>
+                    </nav>
+                </aside>
+
+                <div class="content-main" role="main">
+
+                    <article id="variables" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4. Variables predictivas y límites del modelo</h2>
+                            <p class="article-subtitle">Señales exógenas, jerarquía de fiabilidad y control del riesgo</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">El sistema integra múltiples variables críticas que permiten anticipar la demanda de manera localizada y racional. Entre ellas se incluyen condiciones meteorológicas (con especial énfasis en lluvia intensa), eventos deportivos y culturales, interrupciones del transporte público, patrones residenciales de concentración poblacional, probabilidad de destino por zona de origen, duración y coste medio de trayectos entre zonas, y tiempos de desplazamiento asociados.</p>
+
+                            <div class="insight-box">
+                                <h4>Límite de seguridad económico</h4>
+                                <p>El principio operativo es conservador: <strong>los incentivos nunca superan el valor esperado de la demanda</strong>. Esto protege la rentabilidad ante incertidumbre local y evita subsidios ineficientes.</p>
+                            </div>
+
+                            <div class="problem-box warning">
+                                <h4>Señales robustas vs. señales débiles</h4>
+                                <p>Las señales predictivas se jerarquizan por fiabilidad. Priorizamos indicadores sólidos (lluvia intensa, eventos programados, interrupciones confirmadas del metro), mientras que las señales débiles reciben tratamiento conservador y ajustes dinámicos de incentivos.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="vehiculos" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4.1. Datos sobre vehículos</h2>
+                            <p class="article-subtitle">TLC + enfoque por zonas (zone‑centric)</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">La ingesta principal proviene de la NYC Taxi & Limousine Commission (TLC). Aunque el histórico abarca más de una década, acotamos a una ventana móvil de los últimos 12 meses, consolidando un volumen superior a 100 millones de registros. Esta decisión maximiza la relevancia post‑pandemia y captura un ciclo estacional completo sin introducir sesgos históricos obsoletos.</p>
+
+                            <div class="innovation-highlight">
+                                <h4>Arquitectura de predicción</h4>
+                                <p>Evaluamos dos estrategias: predicción vectorial de toda la ciudad vs. un enfoque <strong>centrado en zonas</strong>. La alta dimensionalidad y la sparsity de los Boroughs exteriores nos llevó a pivotar hacia un modelo zone‑centric con <strong>embeddings espaciales</strong>, capaces de aprender similitudes semánticas (p. ej., Upper East Side vs Upper West Side) sin el coste de una matriz densa global. Probamos ambos enfoques y elegimos el de mayor rendimiento.</p>
+                            </div>
+
+                            <div class="problem-box warning">
+                                <h4>Topología temporal (ciclos)</h4>
+                                <p>La codificación ordinal introduce discontinuidades (23:00 vs 00:00). Para evitar este sesgo, implementaremos <strong>codificación cíclica</strong> (seno/coseno), preservando continuidad diaria y anual y mejorando la detección de transiciones nocturnas y estacionales.</p>
+                            </div>
+
+                            <div class="innovation-highlight">
+                                <h4>Evidencia operativa: estacionalidad y patrones intra‑mes</h4>
+                                <p>Estas visualizaciones justifican que el modelo capture estacionalidad mensual y desviaciones intra‑mes (festivos/cambios de actividad), con especial sensibilidad en diciembre y el arranque del Q1.</p>
+                            </div>
+
+                            <div class="features-grid" aria-label="Gráficos de series temporales">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>📅 Pickups de taxis por mes</h3>
+                                        <span class="map-tag taxi-tag">taxis_mes</span>
+                                    </div>
+                                    <div id="chart-taxis-mes" style="width: 100%; height: 420px;"></div>
+                                    <p class="map-caption">Estacionalidad mensual (proxy de ciclo socioeconómico): útil para calibrar predicción y evitar sesgos por meses atípicos.</p>
+                                </div>
+
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>🗓️ Media diaria en Diciembre</h3>
+                                        <span class="map-tag uber-tag">retention_dia_taxis</span>
+                                    </div>
+                                    <div id="chart-retencion-dia-taxis" style="width: 100%; height: 420px;"></div>
+                                    <p class="map-caption">Patrón trifásico en diciembre: subida pre‑Navidad, ruptura alrededor del día 25 y ajuste posterior (fatiga de consumo) que afecta al Q1.</p>
+                                </div>
+                            </div>
+
+                            <div class="insight-box success">
+                                <h4>Conclusión para el modelado</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Estacionalidad:</strong> el modelo debe aprender ciclos anuales sin contaminarse con datos pre‑pandemia</li>
+                                    <li><strong>Eventos de calendario:</strong> días especiales cambian el régimen de demanda y requieren sensibilidad temporal</li>
+                                    <li><strong>Heterogeneidad espacial:</strong> el patrón depende de la zona; no vale una media global</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="meteo" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4.2. Datos sobre el tiempo</h2>
+                            <p class="article-subtitle">Open‑Meteo + señales lineales y no lineales</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">Integramos meteorología horaria desde Open‑Meteo. Tras comparar Boroughs, detectamos una homogeneidad atmosférica superior al 95%, lo que justificó unificar la señal en un único nodo “NYC General” y reducir dimensionalidad sin pérdida informativa. El número de filas se alinea con el rango temporal del dataset de vehículos.</p>
+
+                            <div class="predictive-variables">
+                                <h4>Variables integradas</h4>
+                                <div class="variables-grid">
+                                    <div class="variable-card weather">
+                                        <div class="variable-icon">🌡️</div>
+                                        <h5>Temperatura</h5>
+                                        <p>Señal estacional y de confort</p>
+                                    </div>
+                                    <div class="variable-card weather">
+                                        <div class="variable-icon">🌧️</div>
+                                        <h5>Precipitación</h5>
+                                        <p>Señal no lineal (ligera vs extrema)</p>
+                                    </div>
+                                    <div class="variable-card weather">
+                                        <div class="variable-icon">🌬️</div>
+                                        <h5>Viento/Humedad</h5>
+                                        <p>Relación lineal significativa en pickups</p>
+                                    </div>
+                                    <div class="variable-card weather">
+                                        <div class="variable-icon">❄️</div>
+                                        <h5>Nieve</h5>
+                                        <p>Distribución dispersa; señal débil</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="problem-box warning">
+                                <h4>Lluvia: elasticidad variable</h4>
+                                <p>Con lluvia ligera/moderada, los pickups suben; con eventos extremos, la demanda cae por reducción general de movilidad. Esta elasticidad no lineal exige un tratamiento específico en el modelo.</p>
+                            </div>
+
+                            <div class="features-grid" aria-label="Impacto del clima en la demanda">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>🌧️ Pickups vs lluvia</h3>
+                                        <span class="map-tag taxi-tag">boxplot_pickups_lluvia</span>
+                                    </div>
+                                    <div id="chart-boxplot-lluvia" style="width: 100%; height: 480px;"></div>
+                                    <p class="map-caption">Relación no lineal: aumento con lluvia moderada y caída en episodios extremos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="mta" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4.3. Incidencias de transporte público (MTA)</h2>
+                            <p class="article-subtitle">Sustitución modal y picos inelásticos</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">Integramos alertas y estados operativos (delays, cancelaciones, cambios de servicio y mantenimiento planificado) alineándolos temporalmente con el dataset de taxis mediante un ETL ad‑hoc.</p>
+
+                            <div class="innovation-highlight">
+                                <h4>Hallazgo clave</h4>
+                                <p>Las incidencias del transporte público correlacionan positivamente con la demanda de pickups: ante fallos del metro/LIRR se produce una migración inmediata hacia transporte privado, generando picos de demanda inelástica.</p>
+                            </div>
+
+                            <div class="problem-box warning">
+                                <h4>Complemento en tiempo real</h4>
+                                <p>Los feeds GTFS‑Realtime permiten capturar disrupciones operativas actuales, mapear su distribución espacial y mejorar sensibilidad del modelo ante variaciones recientes.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="latente" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4.4. Análisis de demanda latente</h2>
+                            <p class="article-subtitle">Dónde “no se pide” porque no se confía en la oferta</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">La demanda latente aparece cuando el usuario no solicita por baja disponibilidad percibida. Nuestro enfoque la hace visible midiendo cobertura efectiva, tiempos de espera y cambios de comportamiento tras redistribución anticipada. Esto permite estimar el “mercado invisible” que hoy no se materializa por falta de confianza en la oferta.</p>
+                        </div>
+                    </article>
+
+                    <article id="propinas" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4.5. Análisis de propinas</h2>
+                            <p class="article-subtitle">Rentabilidad relativa y estabilidad del % de tip</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">Para maximizar ingresos analizamos si la ubicación influye en el valor de las propinas. Tras filtrar distritos con alta demanda, observamos que, aunque los aeropuertos concentran el mayor volumen absoluto, la rentabilidad debe medirse en términos relativos.</p>
+
+                            <div class="innovation-highlight">
+                                <h4>Hallazgo clave</h4>
+                                <p>La propina como porcentaje del total pagado es notablemente estable: ~15% con una desviación estándar muy baja (≈0.23%). Esto convierte el % de tip en una constante fiable para estimar ingresos esperados por zona.</p>
+                            </div>
+
+                            <div class="features-grid" aria-label="Análisis de propinas">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>💡 Dispersión de propinas</h3>
+                                        <span class="map-tag uber-tag">scatter_propinas</span>
+                                    </div>
+                                    <div id="chart-scatter-propinas" style="width: 100%; height: 420px;"></div>
+                                    <p class="map-caption">Relación entre tip y variables operativas para validar estabilidad del porcentaje.</p>
+                                </div>
+
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>📊 Distribución del % de propina</h3>
+                                        <span class="map-tag taxi-tag">histograma_propinas</span>
+                                    </div>
+                                    <div id="chart-hist-propinas" style="width: 100%; height: 420px;"></div>
+                                    <p class="map-caption">Concentración alrededor del 15% con baja dispersión.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="otras" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4.6. Otras fuentes de datos</h2>
+                            <p class="article-subtitle">Eventos, tráfico y atributos demográficos</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">Además de las variables ya mencionadas, estamos trabajando con datos de eventos (aforo), tráfico (congestión) y proxies de residencia/trabajo por zona. Estos módulos están en iteración y validación para su incorporación en versiones futuras.</p>
+                        </div>
+                    </article>
+
+
+                    <article id="citas" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>Citas</h2>
+                            <p class="article-subtitle">Referencias usadas</p>
+                        </div>
+
+                        <div class="article-content">
+                            <div class="citation">
+                                <p><strong>*1:</strong> Schaller Consulting — “Empty Seats, Full Streets.” (21 Dec 2017). <a href="https://schallerconsult.com/rideservices/emptyseatsfullstreets.pdf" target="_blank" rel="noopener">https://schallerconsult.com/rideservices/emptyseatsfullstreets.pdf</a>. Accessed 3 Feb 2026.</p>
+                                <p><strong>*2:</strong> New York City Taxi and Limousine Commission. (2012). Taxi medallion ownership and operation data. <a href="https://en.wikipedia.org/wiki/Taxis_of_New_York_City" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Taxis_of_New_York_City</a></p>
+                                <p><strong>*3:</strong> Página oficial de Gridwise: <a href="https://gridwise.io/es/" target="_blank" rel="noopener">https://gridwise.io/es/</a></p>
+                            </div>
+
+                            <div class="navigation-footer hidden">
+                                <div class="nav-buttons">
+                                    <a href="mercado.html" class="btn-secondary">← Anterior: Estudio de Mercado</a>
+                                    <a href="index.html" class="btn-primary">Volver al Inicio →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 NextStep AI. Inteligencia para conductores.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación lateral: estado activo en click/scroll.
+        // (El smooth-scroll general ya lo gestiona script.js con los anchors #...)
+        const sidebarLinks = Array.from(document.querySelectorAll('.content-nav a'));
+        const contentSections = Array.from(document.querySelectorAll('.content-article'));
+
+        const setActive = (id) => {
+            sidebarLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+        };
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const id = link.getAttribute('href')?.slice(1);
+                if (id) setActive(id);
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            let currentId = contentSections[0]?.id || '';
+            for (const section of contentSections) {
+                if (window.scrollY >= section.offsetTop - 220) {
+                    currentId = section.id;
+                }
+            }
+            if (currentId) setActive(currentId);
+        }, { passive: true });
+    </script>
+
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

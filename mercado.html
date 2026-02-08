@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio de Mercado | NYTaxi AI - Análisis Completo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="mercado-page">
+
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="logo">
+            <a href="index.html" aria-label="Ir al inicio">NextStep<span class="dot">.</span><span class="ai-text">ai</span></a>
+        </div>
+        
+        <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+        
+        <div class="nav-links">
+            <a href="index.html" aria-label="Ir al inicio">Inicio</a>
+            <a href="contexto.html" aria-label="Ver contexto y análisis">Contexto</a>
+            <a href="propuesta.html" aria-label="Ver nuestra propuesta">Propuesta</a>
+            <a href="mercado.html" class="active" aria-current="page">Mercado</a>
+            <a href="desarrollo.html" aria-label="Variables predictivas">Variables predictivas</a>
+            <a href="escalado.html" aria-label="Propuesta de desarrollo y escalado">Escalado</a>
+            <a href="index.html#features" aria-label="Ver mapas interactivos">Mapas</a>
+            <a href="index.html#calculator" aria-label="Usar calculadora de ganancias">Calculadora</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="page-header-content hidden">
+                <span class="badge" role="text">INVESTIGACIÓN DE MERCADO</span>
+                <h1>Estudio de <span class="highlight">Mercado</span></h1>
+                <p class="lead">Análisis exhaustivo del ecosistema de movilidad, segmentación de clientes y posicionamiento competitivo.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Navegación lateral -->
+                <aside class="content-sidebar">
+                    <nav class="content-nav">
+                        <a href="#estructura" class="nav-item active">Estructura de Oferta</a>
+                        <a href="#patrones" class="nav-item">Patrones Operativos</a>
+                        <a href="#segmentacion" class="nav-item">Segmentación</a>
+                        <a href="#competencia" class="nav-item">Competencia</a>
+                        <a href="#monetizacion" class="nav-item">Monetización</a>
+                    </nav>
+                </aside>
+
+                <!-- Contenido principal -->
+                <main class="content-main">
+                    
+                    <!-- Estructura de la Oferta -->
+                    <article id="estructura" class="content-article">
+                        <div class="article-header">
+                            <h2>Estructura de la Oferta: Propiedad y Toma de Decisiones</h2>
+                            <p class="article-subtitle">El mercado de movilidad on-demand no es monolítico</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">El mercado de movilidad on-demand en Nueva York no es monolítico; se articula en un ecosistema híbrido con tres segmentos clave, cada uno con dinámicas de propiedad y decisión muy diferenciadas.</p>
+                            
+                            <div class="market-segments">
+                                <div class="segment-card yellow">
+                                    <div class="segment-header">
+                                        <h4>Yellow Cabs (Medallions)</h4>
+                                        <span class="segment-badge traditional">Tradicional</span>
+                                    </div>
+                                    <div class="segment-content">
+                                        <ul class="segment-features">
+                                            <li>Históricamente regulados y concentrados en Manhattan</li>
+                                            <li>Solo <strong>18%</strong> operados por su propietario (TLC)</li>
+                                            <li>Más del <strong>80%</strong> gestionados por flotas o arrendados</li>
+                                            <li>Operativa por turnos diarios o semanales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="segment-card green">
+                                    <div class="segment-header">
+                                        <h4>Green Taxis (Boro Taxis)</h4>
+                                        <span class="segment-badge regional">Regional</span>
+                                    </div>
+                                    <div class="segment-content">
+                                        <ul class="segment-features">
+                                            <li>Cubren demanda en distritos exteriores (Queens, Brooklyn, Bronx)</li>
+                                            <li>~<strong>6,000</strong> licencias activas</li>
+                                            <li><strong>Restricción crítica:</strong> no pueden recoger en Manhattan al sur de 96ª Este / 110ª Oeste</li>
+                                            <li>Necesidad de posicionamiento preciso en zonas residenciales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="segment-card purple">
+                                    <div class="segment-header">
+                                        <h4>High-Volume FHVs (VTCs - Uber/Lyft)</h4>
+                                        <span class="segment-badge modern">Moderno</span>
+                                    </div>
+                                    <div class="segment-content">
+                                        <ul class="segment-features">
+                                            <li>Mayor volumen de vehículos (>80,000)</li>
+                                            <li>Modelo de gig economy</li>
+                                            <li>Conductor propietario o arrendatario financiero</li>
+                                            <li>Asume costes operativos y depreciación del activo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="market-size-analysis">
+                                <h4>Tamaño del Mercado Disponible (TAM)</h4>
+                                <div class="tam-visualization">
+                                    <div class="tam-segment">
+                                        <div class="tam-number">13,500</div>
+                                        <div class="tam-label">Yellow Cabs</div>
+                                    </div>
+                                    <div class="tam-plus">+</div>
+                                    <div class="tam-segment">
+                                        <div class="tam-number">6,000</div>
+                                        <div class="tam-label">Green Taxis</div>
+                                    </div>
+                                    <div class="tam-plus">+</div>
+                                    <div class="tam-segment">
+                                        <div class="tam-number">80,000+</div>
+                                        <div class="tam-label">FHV Activos</div>
+                                    </div>
+                                    <div class="tam-equals">=</div>
+                                    <div class="tam-total">
+                                        <div class="tam-number">100,000+</div>
+                                        <div class="tam-label">Mercado Total</div>
+                                    </div>
+                                </div>
+                                <p class="tam-insight">Al integrar Green Taxis y FHVs (más de 80.000 vehículos activos según TLC), el mercado potencial supera las 100.000 unidades.</p>
+                                <p class="tam-insight">Esto transforma el problema de negocio: pasamos de optimizar un nicho regulado a <strong>orquestar la logística de la mayor flota de transporte urbano de Occidente.</strong></p>
+                            </div>
+
+                            <div class="decision-asymmetry">
+                                <h4>La Asimetría en la Toma de Decisiones</h4>
+                                <p>Esta estructura heterogénea converge en un problema común: <strong>la desconexión entre la propiedad del activo y la inteligencia operativa.</strong></p>
+                                
+                                <div class="asymmetry-analysis">
+                                    <div class="asymmetry-sector">
+                                        <h5>Sector Taxi (Yellow & Green)</h5>
+                                        <p>Operación altamente descentralizada. El conductor arrendatario decide su ruta por heurísticas personales o inercia histórica. Las flotas propietarias carecen de canales en tiempo real y se limitan a la renta del medallón.</p>
+                                    </div>
+                                    <div class="asymmetry-sector">
+                                        <h5>Sector VTC (FHV)</h5>
+                                        <p>Aunque las plataformas centralizan el matching, la decisión de posicionamiento en idle time recae en el conductor individual, reaccionando a mapas de tarifa dinámica que generan saturación tardía.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Patrones Operativos -->
+                    <article id="patrones" class="content-article">
+                        <div class="article-header">
+                            <h2>Patrones Operativos y Fallos de Distribución Espacial</h2>
+                            <p class="article-subtitle">Concentración sistémica e ineficiencias del mercado</p>
+                        </div>
+
+                        <div class="article-content">
+                            <div class="operational-patterns">
+                                <h4>Concentración Sistémica</h4>
+                                <p>Los patrones operativos del transporte on-demand evidencian una <strong>concentración sistémica de la oferta</strong> en el núcleo duro de Manhattan y los aeropuertos, independientemente de la variabilidad real de la demanda en los distritos periféricos.</p>
+                            </div>
+
+                            <div class="card map-card hidden">
+                                <div class="map-header">
+                                    <h3>🚖 Zonas con más pickups</h3>
+                                    <span class="map-tag taxi-tag">Taxis</span>
+                                </div>
+                                <div id="mapa-taxi" style="width: 100%; height: 480px;"></div>
+                                <p class="map-caption">Distribución espacial de recogidas: concentración en Manhattan y aeropuertos.</p>
+                            </div>
+
+                            <div class="aversion-logics">
+                                <h4>Lógicas de Aversión al Riesgo</h4>
+                                <div class="aversion-grid">
+                                    <div class="aversion-card">
+                                        <h5>Taxi Tradicional</h5>
+                                        <p><strong>Inercia Defensiva</strong></p>
+                                        <p>Saturando zonas históricamente rentables</p>
+                                    </div>
+                                    <div class="aversion-card">
+                                        <h5>Conductor VTC</h5>
+                                        <p><strong>Reactividad Algorítmica</strong></p>
+                                        <p>Persiguiendo mapas de calor de tarifa dinámica que generan saturación tardía</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="market-failure">
+                                <h4>Fallo de Mercado Compartido</h4>
+                                <div class="failure-analysis">
+                                    <div class="failure-side oversaturation">
+                                        <h5>Centro Sobresaturado</h5>
+                                        <ul>
+                                            <li>Competencia caníbal</li>
+                                            <li>Exceso de oferta</li>
+                                            <li>Rentabilidad reducida</li>
+                                        </ul>
+                                    </div>
+                                    <div class="vs-divider">VS</div>
+                                    <div class="failure-side desert">
+                                        <h5>Desiertos de Servicio</h5>
+                                        <ul>
+                                            <li>Zonas residenciales desatendidas</li>
+                                            <li>Demanda latente invisible</li>
+                                            <li>Oportunidades perdidas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vicious-cycle">
+                                <h4>Círculo Vicioso de Demanda Latente</h4>
+                                <p>La falta de oferta fiable en zonas externas disuade al usuario de solicitar el servicio, lo que a su vez confirma erróneamente a los conductores que allí no hay negocio.</p>
+                                
+                                <div class="cycle-steps">
+                                    <div class="cycle-step">1. Falta de oferta en zona</div>
+                                    <div class="cycle-arrow">→</div>
+                                    <div class="cycle-step">2. Usuario no solicita servicio</div>
+                                    <div class="cycle-arrow">→</div>
+                                    <div class="cycle-step">3. Conductor cree "no hay demanda"</div>
+                                    <div class="cycle-arrow">→</div>
+                                    <div class="cycle-step">4. Evita la zona</div>
+                                </div>
+                            </div>
+
+                            <div class="root-problem">
+                                <h4>El Problema Central</h4>
+                                <p class="problem-statement">El problema no es la falta de clientes, sino la <strong>incapacidad de la flota actual para transformar datos agregados en decisiones de posicionamiento anticipado</strong>, rompiendo la dependencia de la demanda visible inmediata.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Segmentación -->
+                    <article id="segmentacion" class="content-article">
+                        <div class="article-header">
+                            <h2>Segmentación de Clientes y Necesidades no Cubiertas</h2>
+                            <p class="article-subtitle">Identificando oportunidades de mercado específicas</p>
+                        </div>
+
+                        <div class="article-content">
+                            <div class="client-segments">
+                                <div class="segment-detailed">
+                                    <h4>Segmento 1: Conductores Individuales</h4>
+                                    <div class="segment-analysis">
+                                        <div class="segment-problem">
+                                            <h5>Problema Actual</h5>
+                                            <p>Comportamiento operativo condicionado por la atomización de la oferta y ausencia de coordinación, limitando su capacidad para capturar demanda latente y maximizar eficiencia.</p>
+                                        </div>
+                                        <div class="segment-solution">
+                                            <h5>Nuestra Solución</h5>
+                                            <ul>
+                                                <li><strong>Incentivos económicos explícitos</strong> por posicionamiento anticipado</li>
+                                                <li><strong>Gamificación</strong> orientada a premiar consistencia y lealtad</li>
+                                                <li><strong>Esquema escalonado</strong> que favorece adopción temprana</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="segment-detailed">
+                                    <h4>Segmento 2: Flotas de Vehículos</h4>
+                                    <div class="segment-analysis">
+                                        <div class="segment-opportunity">
+                                            <h5>Oportunidad</h5>
+                                            <p>Clientes directos del sistema que permiten ofrecer incentivos agregados a menor coste unitario, incrementando eficiencia global y facilitando adopción inicial rápida.</p>
+                                        </div>
+                                        <div class="segment-benefits">
+                                            <h5>Beneficios</h5>
+                                            <ul>
+                                                <li>Incentivos agregados más eficientes</li>
+                                                <li>Adopción inicial masiva</li>
+                                                <li>Cobertura efectiva</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="segment-detailed">
+                                    <h4>Segmento 3: Empresas e Instituciones (B2B)</h4>
+                                    <div class="segment-analysis">
+                                        <div class="segment-clients">
+                                            <h5>Clientes Objetivo</h5>
+                                            <ul>
+                                                <li>Hoteles de alta categoría</li>
+                                                <li>Hospitales y centros médicos</li>
+                                                <li>Organizadores de eventos</li>
+                                                <li>Grandes corporaciones</li>
+                                            </ul>
+                                        </div>
+                                        <div class="segment-value">
+                                            <h5>Propuesta de Valor</h5>
+                                            <p>Demanda recurrente y previsible de transporte inmediato. En situaciones de alta volatilidad, el mercado abierto resulta insuficiente. Nuestro enfoque evita garantías rígidas y se centra en <strong>incrementar probabilísticamente la disponibilidad</strong>, con pago por incremento medible de cobertura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="b2b-advantage">
+                                <h4>Ventaja del Modelo B2B</h4>
+                                <div class="b2b-benefits">
+                                    <div class="b2b-benefit">
+                                        <div class="benefit-icon">01</div>
+                                        <h5>Pago por Resultados</h5>
+                                        <p>Las entidades pagan únicamente por incremento medible y verificable de cobertura</p>
+                                    </div>
+                                    <div class="b2b-benefit">
+                                        <div class="benefit-icon">02</div>
+                                        <h5>Reducción de Riesgos</h5>
+                                        <p>Evita riesgos financieros y legales vs modelos tradicionales de contratación cerrada</p>
+                                    </div>
+                                    <div class="b2b-benefit">
+                                        <div class="benefit-icon">03</div>
+                                        <h5>Marco Transparente</h5>
+                                        <p>Colaboración transparente con métricas verificables</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Competencia -->
+                    <article id="competencia" class="content-article">
+                        <div class="article-header">
+                            <h2>Comparativa con Soluciones Existentes y Diferenciación</h2>
+                            <p class="article-subtitle">Posicionamiento competitivo y ventajas diferenciales</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">Aunque las plataformas VTC optimizan globalmente la asignación, su lógica sigue siendo reactiva: la predicción no se traduce en acciones preventivas porque pagar anticipadamente por presencia eliminaría la señal de escasez. Nuestro modelo opera sobre una flota abierta y heterogénea y convierte la predicción en posicionamiento anticipado mediante incentivos controlados.</p>
+
+                            <div class="competitive-landscape">
+                                <h4>Paisaje Competitivo</h4>
+                                
+                                <div class="competitor-analysis">
+                                    <div class="competitor uber-lyft">
+                                        <div class="competitor-head">
+                                            <div class="competitor-logo is-text" aria-label="Uber y Lyft">UL</div>
+                                            <div class="competitor-meta">
+                                                <span class="competitor-kicker">Plataformas VTC</span>
+                                                <h5>Uber / Lyft</h5>
+                                            </div>
+                                        </div>
+                                        <div class="competitor-details">
+                                            <div class="comp-strengths">
+                                                <h6>Fortalezas</h6>
+                                                <ul>
+                                                    <li>Optimización global de flota</li>
+                                                    <li>Capacidad predictiva avanzada</li>
+                                                    <li>Experiencia digital pulida</li>
+                                                </ul>
+                                            </div>
+                                            <div class="comp-limitations">
+                                                <h6>Limitaciones</h6>
+                                                <ul>
+                                                    <li>Modelo esencialmente reactivo</li>
+                                                    <li>Rentabilidad ligada a volatilidad de precios</li>
+                                                    <li>La predicción no se traduce en acción preventiva</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <p class="comp-insight">Pagar anticipadamente por presencia eliminaría la señal de escasez y reduciría la rentabilidad del modelo.</p>
+                                    </div>
+
+                                    <div class="competitor gridwise">
+                                        <div class="competitor-head">
+                                            <div class="competitor-logo is-text" aria-label="Gridwise">GW</div>
+                                            <div class="competitor-meta">
+                                                <span class="competitor-kicker">Inteligencia de ingresos</span>
+                                                <h5>Gridwise</h5>
+                                            </div>
+                                        </div>
+                                        <div class="competitor-details">
+                                            <div class="comp-model">
+                                                <h6>Su Modelo</h6>
+                                                <ul>
+                                                    <li>Freemium para conductores</li>
+                                                    <li>Venta de analíticas B2B</li>
+                                                    <li>Enfoque generalista en gig economy</li>
+                                                </ul>
+                                            </div>
+                                            <div class="comp-gaps">
+                                                <h6>Limitaciones</h6>
+                                                <ul>
+                                                    <li>Herramienta de información pasiva</li>
+                                                    <li>Sin localización de flota en tiempo real</li>
+                                                    <li>No orquesta redistribución</li>
+                                                    <li>No predice demanda futura ni demanda latente</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <p class="comp-insight">Validan la necesidad de inteligencia de mercado, pero no cubren la orquestación operativa en tiempo real.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="our-differentiation">
+                                <h4>Nuestra Diferenciación</h4>
+                                <div class="differentiation-points">
+                                    <div class="diff-point">
+                                        <div class="diff-icon">01</div>
+                                        <h5>Predictivo vs. Reactivo</h5>
+                                        <p>Transformamos predicción en posicionamiento anticipado mediante incentivos controlados</p>
+                                    </div>
+                                    <div class="diff-point">
+                                        <div class="diff-icon">02</div>
+                                        <h5>Orquestación Activa</h5>
+                                        <p>Capacidad de redistribución inteligente para evitar saturación</p>
+                                    </div>
+                                    <div class="diff-point">
+                                        <div class="diff-icon">03</div>
+                                        <h5>Captación Espontánea</h5>
+                                        <p>Aprovechamos ventaja estructural del taxi en vía pública</p>
+                                    </div>
+                                    <div class="diff-point">
+                                        <div class="diff-icon">04</div>
+                                        <h5>Previsión Futura</h5>
+                                        <p>Modelos de demanda futura y detección de demanda latente</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="strategic-advantage">
+                                <h4>Ventaja Estratégica</h4>
+                                <p class="advantage-text">Esta ventaja es particularmente relevante en <strong>barrios residenciales, áreas familiares y situaciones de demanda súbita</strong> (lluvia intensa, interrupciones del transporte público), donde los usuarios valoran la inmediatez y disponibilidad sobre el precio.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Monetización -->
+                    <article id="monetizacion" class="content-article">
+                        <div class="article-header">
+                            <h2>Modelo de Monetización y Sostenibilidad</h2>
+                            <p class="article-subtitle">Modelo de negocio SaaS puro basado en suscripciones recurrentes</p>
+                        </div>
+
+                        <div class="article-content">
+                            <div class="business-model-intro">
+                                <h4>Fundamentos del Modelo</h4>
+                                <p>El proyecto se fundamenta en un <strong>modelo de negocio SaaS (Software as a Service) puro</strong>, basado en suscripciones recurrentes. Este enfoque monetiza el valor algorítmico de la herramienta (reducción de tiempos muertos y mejora del ratio €/km) mediante una estructura de precios escalonada.</p>
+                            </div>
+
+                            <div class="section-media">
+                                <img src="images/taximetro.jpg" alt="Flota de taxis en operación" loading="lazy">
+                            </div>
+
+                            <div class="pricing-tiers">
+                                <div class="tier b2c">
+                                    <div class="tier-header">
+                                        <h4>Nivel B2C: Suscripción "Driver Pro"</h4>
+                                        <span class="tier-badge individual">Conductor Individual</span>
+                                    </div>
+                                    <div class="tier-content">
+                                        <div class="tier-target">
+                                            <h5>Público Objetivo</h5>
+                                            <p>Conductor autónomo (taxista propietario o conductor VTC dueño de su vehículo) que busca maximizar sus ingresos diarios.</p>
+                                        </div>
+                                        <div class="tier-features">
+                                            <h5>Propuesta</h5>
+                                            <ul>
+                                                <li>Acceso completo al Dashboard Predictivo en tiempo real</li>
+                                                <li>Alertas de demanda latente</li>
+                                                <li>Recomendaciones de posicionamiento estratégico</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tier-pricing">
+                                            <h5>Monetización</h5>
+                                            <div class="pricing-options">
+                                                <div class="price-option">
+                                                    <span class="price">$19.99</span>
+                                                    <span class="period">/mes</span>
+                                                </div>
+                                                <div class="price-option annual">
+                                                    <span class="price">Anual</span>
+                                                    <span class="period">con descuento</span>
+                                                </div>
+                                            </div>
+                                            <p class="pricing-note">Periodo de prueba freemium limitado para demostrar ROI inmediato.</p>
+                                            <p class="roi-note">Un solo viaje adicional al día <strong>amortiza la suscripción mensual</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tier b2b">
+                                    <div class="tier-header">
+                                        <h4>Nivel B2B: Suscripción "Fleet Commander"</h4>
+                                        <span class="tier-badge fleet">Gestoras y Flotas</span>
+                                    </div>
+                                    <div class="tier-content">
+                                        <div class="tier-target">
+                                            <h5>Público Objetivo</h5>
+                                            <p>Propietarios de medallones, clooperativas y gestoras de flotas VTC que operan múltiples vehículos.</p>
+                                        </div>
+                                        <div class="tier-features">
+                                            <h5>Propuesta</h5>
+                                            <ul>
+                                                <li>Panel de control centralizado</li>
+                                                <li>Analítica agregada de rendimiento</li>
+                                                <li>Capacidad de emitir sugerencias a conductores empleados</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tier-pricing">
+                                            <h5>Monetización</h5>
+                                            <div class="pricing-structure">
+                                                <div class="seat-pricing">
+                                                    <span class="price">$10-12</span>
+                                                    <span class="period">/mes/licencia</span>
+                                                </div>
+                                                <div class="volume-discount">
+                                                    <span class="condition">Contratos anuales</span>
+                                                    <span class="condition">Flotas >50 vehículos</span>
+                                                </div>
+                                            </div>
+                                            <p class="pricing-note">Modelo seat-based con descuentos por volumen y permanencia.</p>
+                                            <p class="fleet-benefit">Coste operativo marginal vs. ahorro en combustible y aumento de facturación</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sustainability-analysis">
+                                <h4>Sostenibilidad y Escalabilidad</h4>
+                                
+                                <div class="sustainability-advantages">
+                                    <div class="advantage-item">
+                                        <div class="advantage-icon">01</div>
+                                        <h5>Ingresos Predecibles</h5>
+                                        <p>A diferencia de modelos basados en comisiones, el modelo SaaS garantiza flujo de ingresos recurrente y predecible (MRR)</p>
+                                    </div>
+                                    <div class="advantage-item">
+                                        <div class="advantage-icon">02</div>
+                                        <h5>Costes Eficientes</h5>
+                                        <p>Una vez desarrollado el algoritmo, el coste marginal de añadir nuevo usuario es cercano a cero</p>
+                                    </div>
+                                    <div class="advantage-item">
+                                        <div class="advantage-icon">03</div>
+                                        <h5>Escalabilidad Agresiva</h5>
+                                        <p>Permite escalabilidad sin aumentar proporcionalmente gastos operativos</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="financial-projections">
+                                <h4>Proyecciones Financieras</h4>
+                                <div class="projections-grid">
+                                    <div class="projection-card">
+                                        <div class="projection-number">$2.4M</div>
+                                        <div class="projection-label">ARR Proyectado Año 1</div>
+                                        <small>10,000 conductores × $19.99/mes</small>
+                                    </div>
+                                    <div class="projection-card">
+                                        <div class="projection-number">$8.5M</div>
+                                        <div class="projection-label">ARR Proyectado Año 3</div>
+                                        <small>Mix B2C + Flotas</small>
+                                    </div>
+                                    <div class="projection-card">
+                                        <div class="projection-number">85%</div>
+                                        <div class="projection-label">Margen Bruto</div>
+                                        <small>Costes marginales mínimos</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="call-to-action">
+                                <p>Este modelo garantiza la viabilidad económica a largo plazo mientras proporciona valor inmediato y medible a todos los segmentos de clientes, desde el conductor individual hasta las grandes flotas corporativas.</p>
+                                
+                                <a href="desarrollo.html" class="btn-primary">Ver Propuesta de Desarrollo →</a>
+                            </div>
+                        </div>
+                    </article>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 NextStep AI. Universidad Complutense de Madrid - Facultad de Informática</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para navegación lateral
+        document.querySelectorAll('.content-nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Actualizar navegación activa
+                    document.querySelectorAll('.content-nav a').forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Actualizar navegación basada en scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.content-article');
+            const navLinks = document.querySelectorAll('.content-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

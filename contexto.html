@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contexto | NYTaxi AI - Análisis del Ecosistema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="context-page">
+
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="logo">
+            <a href="index.html" aria-label="Ir al inicio">NextStep<span class="dot">.</span><span class="ai-text">ai</span></a>
+        </div>
+        
+        <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+        
+        <div class="nav-links">
+            <a href="index.html" aria-label="Ir al inicio">Inicio</a>
+            <a href="contexto.html" class="active" aria-current="page">Contexto</a>
+            <a href="propuesta.html" aria-label="Ver nuestra propuesta">Propuesta</a>
+            <a href="mercado.html" aria-label="Análisis de mercado">Mercado</a>
+            <a href="desarrollo.html" aria-label="Variables predictivas">Variables predictivas</a>
+            <a href="escalado.html" aria-label="Propuesta de desarrollo y escalado">Escalado</a>
+            <a href="index.html#features" aria-label="Ver mapas interactivos">Mapas</a>
+            <a href="index.html#calculator" aria-label="Usar calculadora de ganancias">Calculadora</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="page-header-content hidden">
+                <span class="badge" role="text">CONTEXTO COMERCIAL</span>
+                <h1>Contexto y Análisis de la <span class="highlight">Situación Actual</span></h1>
+                <p class="lead">Nueva York es el mercado más exigente del transporte urbano. Si optimizas aquí, puedes escalar en cualquier ciudad.</p>
+                <div class="header-microcopy">Más pickups • Menos kilómetros vacíos • Mejor cobertura</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section" id="main-content">
+        <div class="container">
+            <section class="context-hero hidden" aria-label="Resumen comercial">
+                <div class="context-hero-media">
+                    <img src="images/taxi_contexto.jpeg" alt="Taxis en Nueva York" loading="lazy">
+                </div>
+                <div class="context-hero-content">
+                    <h2>El mercado ya existe. El problema es llegar antes.</h2>
+                    <p>En NYC la demanda es alta, pero el valor se pierde por decisiones tardías. Nuestra ventaja competitiva es simple: reposicionar oferta antes del pico con datos y reglas claras.</p>
+                    <ul class="value-bullets">
+                        <li>Reduce tiempo en vacío y mejora la rentabilidad por turno.</li>
+                        <li>Disminuye la latencia de posicionamiento en zonas clave.</li>
+                        <li>Mejora la experiencia del usuario al aumentar la disponibilidad real.</li>
+                    </ul>
+                    <div class="cta-row">
+                        <a href="propuesta.html" class="btn-primary">Ver propuesta</a>
+                        <a href="mercado.html" class="btn-secondary">Ver mercado</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="context-hero secondary hidden" aria-label="Usuario en contexto">
+                <div class="context-hero-content">
+                    <h2>Cuando la oferta no llega, el usuario se va.</h2>
+                    <p>La experiencia digital comunica el precio, pero no garantiza disponibilidad. La fricción ocurre en el momento crítico: esperas largas y pérdida de confianza.</p>
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <span class="impact-label">Latencia</span>
+                            <span class="impact-value">Alta</span>
+                            <p>El conductor llega tarde al pico.</p>
+                        </div>
+                        <div class="impact-card">
+                            <span class="impact-label">Tiempo vacío</span>
+                            <span class="impact-value">65%</span>
+                            <p>Coste operativo que no genera ingresos.</p>
+                        </div>
+                        <div class="impact-card">
+                            <span class="impact-label">Cobertura</span>
+                            <span class="impact-value">Desigual</span>
+                            <p>Zonas con demanda quedan sin servicio.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="context-hero-media">
+                    <img src="images/persona_movil.jpg" alt="Usuario solicitando transporte" loading="lazy">
+                </div>
+            </section>
+            <div class="content-grid">
+                <!-- Navegación lateral -->
+                <aside class="content-sidebar" role="complementary">
+                    <nav class="content-nav" aria-label="Navegación de contenido">
+                        <a href="#ecosistema" class="nav-item active" aria-current="section">El Ecosistema NYC</a>
+                        <a href="#disrupcion" class="nav-item">Regulación vs. Algoritmia</a>
+                        <a href="#problema" class="nav-item">Definición del Problema</a>
+                    </nav>
+                </aside>
+
+                <!-- Contenido principal -->
+                <div class="content-main" role="main">
+
+                    <!-- Sección 1: Ecosistema -->
+                    <article id="ecosistema" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>El Ecosistema de Movilidad en Nueva York</h2>
+                            <p class="article-subtitle">Un entorno único de complejidad y volumen a nivel global</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">Nueva York es el benchmark global de la movilidad de pago: densidad, complejidad y competencia en su máximo nivel.</p>
+
+                            <div class="insight-box">
+                                <h4>Por qué NYC es el benchmark</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Altísima densidad poblacional</strong> con zonificación muy marcada</li>
+                                    <li><strong>Distritos especializados:</strong> financieros, residenciales y turísticos</li>
+                                    <li><strong>Demanda no lineal</strong> con picos extremadamente pronunciados</li>
+                                    <li><strong>Múltiples variables de influencia:</strong> temporales, geográficas, climáticas</li>
+                                </ul>
+                            </div>
+
+                            <p>Su estructura urbana, caracterizada por una altísima densidad poblacional y una zonificación muy marcada (distritos financieros, residenciales y turísticos), genera un ecosistema de movilidad único. A diferencia de otras ciudades europeas, la demanda en Nueva York no es lineal; presenta picos extremadamente pronunciados dependientes de factores temporales, ubicación geográfica, condiciones climatológicas adversas, la celebración de grandes eventos o la aparición de hechos inesperados como puede ser una avería.</p>
+
+                            <div class="value-points">
+                                <div class="value-point">
+                                    <span class="value-icon">01</span>
+                                    <div>
+                                        <h5>Velocidad operativa</h5>
+                                        <p>Las ventanas de oportunidad duran minutos, no horas. Quien llega primero, captura el valor.</p>
+                                    </div>
+                                </div>
+                                <div class="value-point">
+                                    <span class="value-icon">02</span>
+                                    <div>
+                                        <h5>Territorio hipercompetido</h5>
+                                        <p>La oferta se concentra donde es visible, dejando zonas con demanda real desatendida.</p>
+                                    </div>
+                                </div>
+                                <div class="value-point">
+                                    <span class="value-icon">03</span>
+                                    <div>
+                                        <h5>Contexto cambiante</h5>
+                                        <p>Clima, eventos y disrupciones convierten el día a día en un sistema impredecible.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="data-visualization">
+                                <div class="stat-card">
+                                    <div class="stat-number">100K+</div>
+                                    <div class="stat-label">Vehículos Activos</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">65%</div>
+                                    <div class="stat-label">Tiempo Vacío</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">5</div>
+                                    <div class="stat-label">Boroughs</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sección 2: Disrupción -->
+                    <article id="disrupcion" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>La Disrupción del Mercado: Regulación vs. Algoritmia</h2>
+                            <p class="article-subtitle">Cómo la tecnología cambió las reglas del juego</p>
+                        </div>
+
+                        <div class="article-content">
+                            <div class="comparison-container">
+                                <div class="comparison-side traditional">
+                                    <h3>Modelo Tradicional</h3>
+                                    <div class="comparison-content">
+                                        <h4>Yellow Cabs - Monopolio Regulado</h4>
+                                        <ul>
+                                            <li>Licencias limitadas (medallions)</li>
+                                            <li>Tarifas estáticas</li>
+                                            <li>Omnipresencia física (street hailing)</li>
+                                            <li>Saturación de calles principales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="vs-divider">
+                                    <span>VS</span>
+                                </div>
+
+                                <div class="comparison-side modern">
+                                    <h3>Modelo Tecnológico</h3>
+                                    <div class="comparison-content">
+                                        <h4>VTCs (Uber/Lyft) - Algorítmico</h4>
+                                        <ul>
+                                            <li>Precios dinámicos (surge pricing)</li>
+                                            <li>Gestión de la incertidumbre</li>
+                                            <li>Reequilibrio reactivo</li>
+                                            <li>Experiencia digital mejorada</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="innovation-highlight">
+                                <h4>La Principal Innovación</h4>
+                                <p>La disrupción no fue solo digital: fue <strong>algorítmica</strong>. Las plataformas VTC gestionan la incertidumbre con precios dinámicos y señales de escasez que movilizan conductores en tiempo real. El resultado es una reacción rápida, pero tardía: el pico ya ocurrió. El taxi, incluso con apps, sigue atado a tarifas reguladas sin incentivos de reposicionamiento anticipado. En ambos casos, la incertidumbre termina en el conductor y en el usuario final.</p>
+                            </div>
+
+                            <div class="problem-box warning">
+                                <h4>Limitaciones del Modelo Actual</h4>
+                                <p>La experiencia digital mejoró la información, no la disponibilidad. En picos de demanda (lluvias intensas, eventos multitudinarios o disrupciones del transporte público), el usuario solo recibe la confirmación de la escasez: espera más y paga más. En esos momentos, el taxi recupera su ventaja histórica (captación en vía pública) siempre que exista una oferta bien distribuida. Ahí es donde la inteligencia de posicionamiento marca la diferencia.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sección 3: Problema -->
+                    <article id="problema" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>Definición del Problema de Negocio</h2>
+                            <p class="article-subtitle">Identificando las ineficiencias estructurales del sistema actual</p>
+                        </div>
+
+                        <div class="article-content">
+                            <div class="problem-statement">
+                                <span class="section-kicker">Problema de negocio</span>
+                                <h3>El Problema Central</h3>
+                                <p class="lead-text">La demanda está ahí. Lo que falla es el timing: la oferta llega tarde y el valor se evapora.</p>
+                            </div>
+
+                            <div class="problem-layout">
+                                <div class="problem-copy">
+                                    <div class="insight-box">
+                                        <h4>Lo que ocurre cada día</h4>
+                                        <ul class="feature-list">
+                                            <li>La demanda cambia por clima, hora punta, eventos y disrupciones.</li>
+                                            <li>El taxi patrulla a ciegas; la VTC persigue “puntos calientes” que ya pasaron.</li>
+                                            <li>La latencia de posicionamiento genera cruising por encima del 65%.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="root-cause-analysis">
+                                        <h4>La causa raíz</h4>
+                                        <p>No falta tecnología ni clientes. Falta convertir señales en decisiones anticipadas. Sin un criterio claro, la flota se mueve tarde, pierde pickups y reduce la cobertura real.</p>
+                                    </div>
+                                </div>
+
+                                <div class="problem-media">
+                                    <img src="images/persona_pidiendo_taxis.jpeg" alt="Persona solicitando un taxi" loading="lazy">
+                                </div>
+                            </div>
+
+                            <div class="solution-preview">
+                                <h4>Qué cambia con NextStep</h4>
+                                <p>Convertimos señales del entorno en decisiones operativas claras. El objetivo es mover la oferta antes del pico, con reglas simples y resultados medibles.</p>
+
+                                <div class="solution-grid">
+                                    <div class="solution-card">
+                                        <h5>Señal</h5>
+                                        <p>Variables contextuales que anticipan dónde se concentrará la demanda.</p>
+                                    </div>
+                                    <div class="solution-card">
+                                        <h5>Decisión</h5>
+                                        <p>Recomendaciones accionables para reposicionar la flota con tiempo.</p>
+                                    </div>
+                                    <div class="solution-card">
+                                        <h5>Resultado</h5>
+                                        <p>Más pickups por turno y mejor cobertura cuando el usuario realmente lo necesita.</p>
+                                    </div>
+                                </div>
+
+                                <div class="paradigm-shift">
+                                    <div class="old-paradigm">
+                                        <span class="paradigm-label">PARADIGMA ACTUAL</span>
+                                        <span class="paradigm-text">Asignación Determinista‑Reactiva</span>
+                                        <small>Atender la demanda que ya existe</small>
+                                    </div>
+                                    <div class="arrow">→</div>
+                                    <div class="new-paradigm">
+                                        <span class="paradigm-label">NUEVO PARADIGMA</span>
+                                        <span class="paradigm-text">Orquestación Estocástica‑Predictiva</span>
+                                        <small>Anticiparse a la demanda futura</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="call-to-action">
+                                <p>Resultado esperado: más pickups por turno, menos kilómetros vacíos y una experiencia de usuario consistente incluso en picos de demanda.</p>
+                                <a href="propuesta.html" class="btn-primary">Ver Nuestra Propuesta de Valor →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 NextStep AI. Universidad Complutense de Madrid - Facultad de Informática</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación lateral: estado activo en click/scroll.
+        // (El smooth-scroll general ya lo gestiona script.js con los anchors #...)
+        const sidebarLinks = Array.from(document.querySelectorAll('.content-nav a'));
+        const contentSections = Array.from(document.querySelectorAll('.content-article'));
+
+        const setActive = (id) => {
+            sidebarLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+        };
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const id = link.getAttribute('href')?.slice(1);
+                if (id) setActive(id);
+            });
+        });
+
+        const observerOptions = {
+            root: null,
+            threshold: [0.2, 0.4, 0.6],
+            rootMargin: '-10% 0px -55% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            const visible = entries
+                .filter(entry => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (visible.length > 0) {
+                setActive(visible[0].target.id);
+            }
+        }, observerOptions);
+
+        contentSections.forEach(section => observer.observe(section));
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
