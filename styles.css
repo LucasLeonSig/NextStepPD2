@@ -3834,4 +3834,325 @@ footer {
     .result-display h3 {
         font-size: 2rem;
     }
+
+    
+}
+
+/* ===== TEAM SECTION ===== */
+
+.team-section {
+    padding: 80px 20px;
+    background: #0a0a0f;
+}
+
+.team-box {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.team-box h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    padding: 12px 18px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+}
+
+.initials {
+    background: rgba(255,140,0,0.2);
+    color: orange;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 50%;
+}
+
+/* HERO CONTEXTO VISUAL */
+
+.visual-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.section-badge {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: orange;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.context-metrics {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.metric-card {
+    background: rgba(255,255,255,0.05);
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.metric-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: orange;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.visual-bullets li {
+    margin-bottom: 6px;
+}
+
+.section-bridge {
+    text-align: center;
+    margin: 80px 0 40px;
+    font-size: 1.4rem;
+    color: #aaa;
+}
+
+/* ===== CONTEXTO MODERNO ===== */
+
+.modern-context {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* Sidebar */
+.content-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.content-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-item {
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255,140,0,0.15);
+    color: orange;
+}
+
+
+/* Artículos */
+.content-article {
+    margin-bottom: 80px;
+}
+
+.article-header h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.article-subtitle {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.lead-text {
+    font-size: 1.1rem;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+
+/* Cards info */
+.insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.insight-card {
+    background: rgba(255,255,255,0.04);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+
+/* Stats */
+.stats-row {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    flex: 1;
+    background: rgba(255,140,0,0.08);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-card span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: orange;
+}
+
+
+/* Comparación */
+.comparison-modern {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.model-box {
+    background: rgba(255,255,255,0.04);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.model-box.highlight {
+    border: 1px solid orange;
+}
+
+.explanation {
+    color: #bbb;
+}
+
+
+/* Problema */
+.problem-highlight {
+    background: rgba(255,140,0,0.08);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+}
+
+.problem-card {
+    background: rgba(255,255,255,0.04);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.paradigm-shift-modern {
+    margin-top: 30px;
+    padding: 20px;
+    border-left: 4px solid orange;
+}
+
+/* ===== MEJORAS CONTEXTO ===== */
+
+.content-article {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* TITULOS */
+.article-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.article-subtitle {
+    color: #aaa;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+/* TEXTO */
+.lead-text {
+    color: #ddd;
+    font-size: 1.15rem;
+}
+
+/* CARDS COMPARACION */
+.model-box {
+    background: rgba(255,255,255,0.03);
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.model-box:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.06);
+}
+
+.model-box.highlight {
+    border: 1px solid orange;
+    box-shadow: 0 0 15px rgba(255,165,0,0.2);
+}
+
+/* TEXTO FINAL */
+.explanation {
+    margin-top: 25px;
+    color: #bbb;
+    font-size: 1rem;
+}
+
+/* PROBLEMA */
+.problem-highlight {
+    background: linear-gradient(
+        90deg,
+        rgba(255,165,0,0.12),
+        rgba(255,165,0,0.04)
+    );
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+/* CARDS PROBLEMA */
+.problem-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.problem-card:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* CAMBIO PARADIGMA */
+.paradigm-shift-modern {
+    border-left: 4px solid orange;
+    padding-left: 20px;
+    margin-top: 30px;
 }
