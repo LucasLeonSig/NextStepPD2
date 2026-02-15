@@ -554,23 +554,40 @@
                             </div>
 
                             <div class="financial-projections">
-                                <h4>Proyecciones Financieras</h4>
+                                <h4>Plan Financiero y Estructura de Costes (Año 1)</h4>
+                                <p>Para garantizar la viabilidad del proyecto, hemos modelado una estructura de gastos realista (OPEX/CAPEX) basada en infraestructura cloud, adquisición de usuarios (CAC) y operaciones, frente a un crecimiento de penetración del 5% en el mercado disponible (TAM) durante los primeros 12 meses.</p>
+
                                 <div class="projections-grid">
                                     <div class="projection-card">
-                                        <div class="projection-number">$2.4M</div>
-                                        <div class="projection-label">ARR Proyectado Año 1</div>
-                                        <small>10,000 conductores × $19.99/mes</small>
+                                        <div class="projection-number">$1.2M</div>
+                                        <div class="projection-label">Ingresos Estimados (ARR)</div>
+                                        <small>~5,000 usuarios activos (Mix B2C/B2B) a $19.99/mes</small>
                                     </div>
                                     <div class="projection-card">
-                                        <div class="projection-number">$8.5M</div>
-                                        <div class="projection-label">ARR Proyectado Año 3</div>
-                                        <small>Mix B2C + Flotas</small>
+                                        <div class="projection-number">$85K</div>
+                                        <div class="projection-label">Infraestructura Data & Cloud</div>
+                                        <small>AWS (EC2, S3, SageMaker) + Licencias API comerciales</small>
                                     </div>
                                     <div class="projection-card">
-                                        <div class="projection-number">85%</div>
-                                        <div class="projection-label">Margen Bruto</div>
-                                        <small>Costes marginales mínimos</small>
+                                        <div class="projection-number">$180K</div>
+                                        <div class="projection-label">Incentivos y Adquisición (CAC)</div>
+                                        <small>Fondo de compensación para early adopters y fuerza de ventas</small>
                                     </div>
+                                </div>
+
+                                <div class="cost-breakdown" style="margin-top: 2.5rem;">
+                                    <h5>Desglose Operativo y Tecnológico (OPEX)</h5>
+                                    <ul class="feature-benefits" style="margin-top: 1rem;">
+                                        <li><strong>Infraestructura Amazon Web Services (AWS):</strong> Procesamiento en tiempo real de +100M de registros de la TLC. Uso de <em>Amazon S3</em> (Data Lake), <em>Amazon EMR</em> (procesamiento distribuido) y <em>Amazon SageMaker</em> para la inferencia de los embeddings espaciales y modelos predictivos.</li>
+                                        <li><strong>APIs Externas y Datos:</strong> Licencias comerciales para <em>Open-Meteo</em> (alta frecuencia), feeds de tráfico en tiempo real (TomTom/Google Maps) y procesamiento de GTFS-Realtime de la MTA.</li>
+                                        <li><strong>Equipo Core (Burn Rate):</strong> Equipo inicial *lean* compuesto por 2 Data Scientists, 1 Data Engineer, y 2 perfiles de negocio (Sales B2B/Operaciones). Coste salarial estimado Año 1: $350K.</li>
+                                        <li><strong>Presupuesto de Red (Cold Start):</strong> Fondo económico destinado a pagar/incentivar a los primeros taxistas para que se reposicionen siguiendo el algoritmo, mitigando su aversión al riesgo hasta alcanzar el volumen crítico (efecto red).</li>
+                                    </ul>
+                                </div>
+
+                                <div class="roi-highlight" style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 112, 243, 0.05); border-left: 4px solid #0070f3; border-radius: 8px;">
+                                    <h5 style="margin-top: 0; color: #111;">Viabilidad y Punto de Equilibrio</h5>
+                                    <p style="margin-bottom: 0; color: #444;">Con unos gastos operativos totales rondando los <strong>$650K anuales</strong>, un Coste de Adquisición (CAC) de $35 por conductor y un LTV (Life-Time Value) proyectado de $450, el modelo alcanza su <strong>punto de equilibrio (Break-even) en el mes 14</strong>, asumiendo una tasa de abandono (churn rate) conservadora del 5% mensual.</p>
                                 </div>
                             </div>
 
