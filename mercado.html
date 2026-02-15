@@ -502,7 +502,7 @@
                                     <div class="tier-content">
                                         <div class="tier-target">
                                             <h5>Público Objetivo</h5>
-                                            <p>Propietarios de medallones, clooperativas y gestoras de flotas VTC que operan múltiples vehículos.</p>
+                                            <p>Propietarios de medallones, cooperativas y gestoras de flotas VTC que operan múltiples vehículos.</p>
                                         </div>
                                         <div class="tier-features">
                                             <h5>Propuesta</h5>
@@ -575,20 +575,47 @@
                                     </div>
                                 </div>
 
-                                <div class="cost-breakdown" style="margin-top: 2.5rem;">
+                                <div class="cost-breakdown">
                                     <h5>Desglose de Costes Directos (COGS) y Operativos (OPEX)</h5>
-                                    <ul class="feature-benefits" style="margin-top: 1rem;">
-                                        <li><strong>Infraestructura AWS y Datos (COGS):</strong> Escalabilidad cloud como motor del margen (pasando de $240K en el Año 1 a $1.02M en el Año 3). La arquitectura se divide en tres pilares: <strong>Almacenamiento y ETL</strong> (<em>Amazon S3</em> como Data Lake para los +100M de registros históricos de la TLC y <em>Amazon EMR</em> para procesamiento masivo), <strong>Streaming en Tiempo Real</strong> (<em>Amazon Kinesis</em> para ingestar alertas de la MTA, clima y tráfico al segundo) y <strong>Machine Learning</strong> (<em>Amazon SageMaker</em> para entrenar los embeddings espaciales y mantener los <em>endpoints</em> de inferencia 24/7). Incluye también licencias API comerciales (Open-Meteo). Al estar optimizado de forma elástica, el coste computacional crece mucho más lento que los ingresos.</li>
-                                        <li><strong>Incentivos y CAC (Cold Start):</strong> Fuerte inversión inicial. Destinamos $180K el primer año como fondo de compensación para pagar a los <em>early adopters</em> y mitigar su aversión al riesgo, logrando un Coste de Adquisición (CAC) de $35 por conductor.</li>
-                                        <li><strong>Equipo Core y Operaciones (OPEX):</strong> Estructura <em>lean</em> que evoluciona. Arrancamos con un coste salarial de $350K (Data Science e Ingeniería) en el Año 1, escalando a $1.2M en el Año 3 al incorporar perfiles de ventas B2B y soporte operativo.</li>
-                                    </ul>
+                                    <div class="cost-breakdown-grid">
+                                        <article class="cost-item">
+                                            <div class="cost-item-head">
+                                                <span class="cost-icon" aria-hidden="true">☁️</span>
+                                                <h6>Infraestructura AWS y Datos <span class="cost-type">COGS</span></h6>
+                                            </div>
+                                            <p>Escalabilidad cloud como motor del margen (de <strong>$240K en Año 1</strong> a <strong>$1.02M en Año 3</strong>). Arquitectura en 3 pilares: <strong>S3 + EMR</strong> (Data Lake y ETL), <strong>Kinesis</strong> (streaming en tiempo real) y <strong>SageMaker</strong> (ML e inferencia 24/7), incluyendo APIs comerciales. El coste computacional crece más lento que los ingresos.</p>
+                                        </article>
+
+                                        <article class="cost-item">
+                                            <div class="cost-item-head">
+                                                <span class="cost-icon" aria-hidden="true">🚀</span>
+                                                <h6>Incentivos y CAC <span class="cost-type">Cold Start</span></h6>
+                                            </div>
+                                            <p>Inversión inicial para acelerar adopción: <strong>$180K</strong> en fondo de compensación para <em>early adopters</em>, reduciendo aversión al riesgo y fijando un <strong>CAC de $35</strong> por conductor.</p>
+                                        </article>
+
+                                        <article class="cost-item">
+                                            <div class="cost-item-head">
+                                                <span class="cost-icon" aria-hidden="true">👥</span>
+                                                <h6>Equipo Core y Operaciones <span class="cost-type">OPEX</span></h6>
+                                            </div>
+                                            <p>Estructura <em>lean</em> y progresiva: de <strong>$350K en Año 1</strong> (Data Science e Ingeniería) a <strong>$1.2M en Año 3</strong> con expansión comercial B2B y soporte operativo.</p>
+                                        </article>
+                                    </div>
                                 </div>
 
-                                <div class="roi-highlight" style="margin-top: 2rem; padding: 1.5rem; background-color: #fefce8; border-left: 5px solid #eab308; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                                    <h5 style="margin-top: 0; color: #854d0e; font-weight: 700;">Viabilidad y Punto de Equilibrio (Break-even)</h5>
-                                    <p style="margin-bottom: 0; color: #3f3f46; font-size: 1.05rem; line-height: 1.6;">
+                                <div class="roi-highlight">
+                                    <h5>Viabilidad y Punto de Equilibrio (Break-even)</h5>
+                                    <p>
                                         El modelo presenta un <strong>Margen Bruto promedio del 84.3%</strong> en el periodo de 3 años. Teniendo en cuenta el alto OPEX inicial (operaciones y equipo) necesario para la infraestructura predictiva y los incentivos de red, frente a un LTV (Life-Time Value) proyectado de $450 por usuario y una tasa de abandono conservadora (5% mensual), el proyecto alcanza su <strong>punto de equilibrio operativo (Break-even) en el mes 14</strong>. A partir de ese momento, el flujo de caja se vuelve positivo y acelera el escalado.
                                     </p>
+                                </div>
+
+                                <div class="navigation-footer">
+                                    <div class="nav-buttons">
+                                        <a href="propuesta.html" class="btn-secondary">← Anterior: Propuesta</a>
+                                        <a href="desarrollo.html" class="btn-primary">Siguiente: Variables predictivas →</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

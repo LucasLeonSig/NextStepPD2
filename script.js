@@ -263,7 +263,14 @@ class NextStepApp {
         }
 
         if (Object.prototype.hasOwnProperty.call(value, 'dtype') && Object.prototype.hasOwnProperty.call(value, 'bdata')) {
-            return this.decodeTypedArray(value.dtype, value.bdata);
+            const typed = this.decodeTypedArray(value.dtype, value.bdata);
+            const shape = this.parsePlotlyShape(value.shape);
+
+            if (shape && shape.length > 0) {
+                return this.reshapeArray(Array.from(typed), shape);
+            }
+
+            return typed;
         }
 
         const decoded = {};
@@ -295,6 +302,47 @@ class NextStepApp {
                 // Fallback: devolver bytes si el tipo es desconocido
                 return new Uint8Array(buffer);
         }
+    }
+
+    parsePlotlyShape(shape) {
+        if (!shape) return null;
+
+        if (Array.isArray(shape)) {
+            const dims = shape.map(n => Number(n)).filter(n => Number.isFinite(n) && n > 0);
+            return dims.length ? dims : null;
+        }
+
+        if (typeof shape === 'string') {
+            const dims = shape
+                .split(',')
+                .map(s => Number(s.trim()))
+                .filter(n => Number.isFinite(n) && n > 0);
+            return dims.length ? dims : null;
+        }
+
+        return null;
+    }
+
+    reshapeArray(flatArray, shape) {
+        if (!shape || shape.length === 0) {
+            return flatArray;
+        }
+
+        if (shape.length === 1) {
+            return flatArray.slice(0, shape[0]);
+        }
+
+        const [rows, ...rest] = shape;
+        const chunkSize = rest.reduce((acc, dim) => acc * dim, 1);
+        const matrix = [];
+
+        for (let i = 0; i < rows; i++) {
+            const start = i * chunkSize;
+            const end = start + chunkSize;
+            matrix.push(this.reshapeArray(flatArray.slice(start, end), rest));
+        }
+
+        return matrix;
     }
 
     applyDarkThemeToFigureLayout(layout, options = {}) {
@@ -662,22 +710,29 @@ class NextStepApp {
         const slider = document.getElementById('hoursInput');
         const hoursDisplay = document.getElementById('hoursValue');
         const resultDisplay = document.getElementById('earningsResult');
+        const footnote = document.getElementById('calculatorFootnote');
         
         if (!slider || !hoursDisplay || !resultDisplay) return;
 
         const EXTRA_PER_HOUR = 6.50;
         const WORKING_DAYS = 22;
+        const DRIVER_PRO_MONTHLY = 19.99;
 
         const updateCalculator = () => {
             const hours = parseInt(slider.value);
             const dailyExtra = hours * EXTRA_PER_HOUR;
             const monthlyExtra = dailyExtra * WORKING_DAYS;
             const annualExtra = monthlyExtra * 12;
+            const monthlyNet = Math.max(monthlyExtra - DRIVER_PRO_MONTHLY, 0);
 
             // Actualizar displays con animación
             hoursDisplay.textContent = `${hours} Hora${hours !== 1 ? 's' : ''}/día`;
             
             this.animateNumber(resultDisplay, monthlyExtra, '$', 'monthly');
+
+            if (footnote) {
+                footnote.textContent = `*Supuesto conservador: +$${EXTRA_PER_HOUR.toFixed(2)}/hora durante ${WORKING_DAYS} días. Neto tras Driver Pro ($${DRIVER_PRO_MONTHLY.toFixed(2)}/mes): $${Math.round(monthlyNet).toLocaleString()}/mes.`;
+            }
             
             // Mostrar desglose adicional
             this.updateCalculatorBreakdown(dailyExtra, monthlyExtra, annualExtra);
