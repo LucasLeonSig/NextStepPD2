@@ -274,6 +274,75 @@ h1 {
     letter-spacing: -0.02em;
 }
 
+.hero .headline-anim .line {
+    display: block;
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+}
+
+.hero .headline-anim .line-1 {
+    animation: heroLineIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+.hero .headline-anim .line-2 {
+    animation: heroLineIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+}
+
+.hero .headline-anim .line-2 .highlight {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+    animation:
+        heroHighlightIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards,
+        heroHighlightGlow 2.4s ease-in-out 1.75s infinite;
+}
+
+@keyframes heroLineIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes heroHighlightIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.96);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes heroHighlightGlow {
+    0%, 100% {
+        text-shadow: 0 0 0 rgba(255, 193, 7, 0);
+    }
+    50% {
+        text-shadow: 0 0 22px rgba(255, 193, 7, 0.35);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero .headline-anim .line,
+    .hero .headline-anim .line-2 .highlight {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+}
+
 .highlight {
     background: var(--gradient-primary);
     -webkit-background-clip: text;

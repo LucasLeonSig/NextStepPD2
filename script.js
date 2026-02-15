@@ -482,8 +482,8 @@ class NextStepApp {
     // =============================================
     setupAnimationObserver() {
         const observerOptions = {
-            threshold: [0.1, 0.3],
-            rootMargin: '0px 0px -10% 0px'
+            threshold: [0.01, 0.1],
+            rootMargin: '0px 0px -5% 0px'
         };
 
         this.animationObserver = new IntersectionObserver((entries) => {
@@ -497,13 +497,22 @@ class NextStepApp {
 
         // Observar elementos con animaciones
         document.querySelectorAll('.hidden').forEach(el => {
-            this.animationObserver.observe(el);
+            if (this.isElementInViewport(el)) {
+                this.handleElementIntersection(el);
+            } else {
+                this.animationObserver.observe(el);
+            }
         });
     }
 
+    isElementInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= viewportHeight * 0.95;
+    }
+
     async handleElementIntersection(element) {
-        // Añadir clase show con delay escalonado
-        await this.delay(100);
+        // Mostrar de forma inmediata para una carga más fluida
         element.classList.add('show');
         
         // Cargar mapas cuando se hacen visibles
@@ -511,14 +520,14 @@ class NextStepApp {
         const uberMap = element.querySelector('#mapa-uber');
         
         if (taxiMap && !this.loadedMaps.has('mapa-taxi')) {
-            await this.renderMap('mapa-taxi', 'data/mapa_datos.json', 'data/geojson_zonas.json', 'Viridis', {
+            this.renderMap('mapa-taxi', 'data/mapa_datos.json', 'data/geojson_zonas.json', 'Viridis', {
                 showScale: false,
                 opacity: 0.85
             });
         }
         
         if (uberMap && !this.loadedMaps.has('mapa-uber')) {
-            await this.renderMap('mapa-uber', 'data/mapa_datos_fhvhv.json', 'data/geojson_zonas_fhvhv.json', 'Plasma', {
+            this.renderMap('mapa-uber', 'data/mapa_datos_fhvhv.json', 'data/geojson_zonas_fhvhv.json', 'Plasma', {
                 showScale: false,
                 opacity: 0.85
             });
@@ -531,23 +540,23 @@ class NextStepApp {
         const histPropinas = element.querySelector('#chart-hist-propinas');
 
         if (taxisMes && !this.loadedMaps.has('chart-taxis-mes')) {
-            await this.renderFigure('chart-taxis-mes', 'data/taxis_mes.json');
+            this.renderFigure('chart-taxis-mes', 'data/taxis_mes.json');
         }
 
         if (retencionDia && !this.loadedMaps.has('chart-retencion-dia-taxis')) {
-            await this.renderFigure('chart-retencion-dia-taxis', 'data/retention_dia_taxis.json');
+            this.renderFigure('chart-retencion-dia-taxis', 'data/retention_dia_taxis.json');
         }
 
         if (boxplotLluvia && !this.loadedMaps.has('chart-boxplot-lluvia')) {
-            await this.renderFigure('chart-boxplot-lluvia', 'data/boxplot_pickups_lluvia.json', { forceXAxis: true });
+            this.renderFigure('chart-boxplot-lluvia', 'data/boxplot_pickups_lluvia.json', { forceXAxis: true });
         }
 
         if (scatterPropinas && !this.loadedMaps.has('chart-scatter-propinas')) {
-            await this.renderFigure('chart-scatter-propinas', 'data/scatter_propinas.json');
+            this.renderFigure('chart-scatter-propinas', 'data/scatter_propinas.json');
         }
 
         if (histPropinas && !this.loadedMaps.has('chart-hist-propinas')) {
-            await this.renderFigure('chart-hist-propinas', 'data/histograma_propinas.json');
+            this.renderFigure('chart-hist-propinas', 'data/histograma_propinas.json');
         }
     }
 

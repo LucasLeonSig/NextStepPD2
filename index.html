@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYTaxi AI | Optimización de Demanda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
@@ -24,9 +26,12 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-content hidden">
+        <div class="hero-content show">
             <span class="badge">NUEVA YORK • INTELIGENCIA DE DATOS</span>
-            <h1>Domina las calles.<br>Predice la <span class="highlight">demanda.</span></h1>
+            <h1 class="headline-anim" aria-label="Domina las calles. Predice la demanda.">
+                <span class="line line-1">Domina las calles.</span>
+                <span class="line line-2">Predice la <span class="highlight">demanda.</span></span>
+            </h1>
             <p>Deja de patrullar en círculos. Visualiza dónde están realmente los pasajeros y aumenta tu rentabilidad.</p>
             <div class="hero-buttons">
                 <a href="#features" class="btn-primary">Ver Comparativa</a>
