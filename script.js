@@ -193,7 +193,16 @@ class NextStepApp {
             { id: 'chart-retencion-dia-taxis', url: 'data/retention_dia_taxis.json' },
             { id: 'chart-boxplot-lluvia', url: 'data/boxplot_pickups_lluvia.json', options: { forceXAxis: true, extraBottomMargin: 110 } },
             { id: 'chart-scatter-propinas', url: 'data/scatter_propinas.json' },
-            { id: 'chart-hist-propinas', url: 'data/histograma_propinas.json' }
+            { id: 'chart-hist-propinas', url: 'data/histograma_propinas.json' },
+            { id: 'chart-figura-13', url: 'data/figura_13.json' },
+            { id: 'chart-figura-14', url: 'data/figura_14.json' },
+            { id: 'chart-figura-15', url: 'data/figura_15.json' },
+            { id: 'chart-figura-16', url: 'data/figura_16.json' },
+            { id: 'chart-figura-17', url: 'data/figura_17.json' },
+            { id: 'chart-figura-18', url: 'data/figura_18.json' },
+            { id: 'chart-figura-20', url: 'data/figura_20.json' },
+            { id: 'chart-figura-21', url: 'data/figura_21.json' },
+            { id: 'chart-figura-22', url: 'data/figura_22.json' }
         ];
 
         chartTargets.forEach(({ id, url, options }) => {
@@ -339,6 +348,29 @@ class NextStepApp {
             themed.title = { ...(themed.title || {}), text: options.title };
         }
 
+        if (themed.title?.text) {
+            themed.margin = {
+                ...(themed.margin || {}),
+                t: Math.max((themed.margin && themed.margin.t) || 0, 80)
+            };
+        }
+
+        if (themed.legend) {
+            themed.legend = {
+                ...(themed.legend || {}),
+                orientation: 'h',
+                yanchor: 'top',
+                y: -0.2,
+                xanchor: 'center',
+                x: 0.5
+            };
+
+            themed.margin = {
+                ...(themed.margin || {}),
+                b: Math.max((themed.margin && themed.margin.b) || 0, 95)
+            };
+        }
+
         return themed;
     }
 
@@ -447,6 +479,24 @@ class NextStepApp {
             await this.renderFigure('chart-scatter-propinas', 'data/scatter_propinas.json');
         } else if (containerId === 'chart-hist-propinas') {
             await this.renderFigure('chart-hist-propinas', 'data/histograma_propinas.json');
+        } else if (containerId === 'chart-figura-13') {
+            await this.renderFigure('chart-figura-13', 'data/figura_13.json');
+        } else if (containerId === 'chart-figura-14') {
+            await this.renderFigure('chart-figura-14', 'data/figura_14.json');
+        } else if (containerId === 'chart-figura-15') {
+            await this.renderFigure('chart-figura-15', 'data/figura_15.json');
+        } else if (containerId === 'chart-figura-16') {
+            await this.renderFigure('chart-figura-16', 'data/figura_16.json');
+        } else if (containerId === 'chart-figura-17') {
+            await this.renderFigure('chart-figura-17', 'data/figura_17.json');
+        } else if (containerId === 'chart-figura-18') {
+            await this.renderFigure('chart-figura-18', 'data/figura_18.json');
+        } else if (containerId === 'chart-figura-20') {
+            await this.renderFigure('chart-figura-20', 'data/figura_20.json');
+        } else if (containerId === 'chart-figura-21') {
+            await this.renderFigure('chart-figura-21', 'data/figura_21.json');
+        } else if (containerId === 'chart-figura-22') {
+            await this.renderFigure('chart-figura-22', 'data/figura_22.json');
         }
     }
 
@@ -538,6 +588,15 @@ class NextStepApp {
         const boxplotLluvia = element.querySelector('#chart-boxplot-lluvia');
         const scatterPropinas = element.querySelector('#chart-scatter-propinas');
         const histPropinas = element.querySelector('#chart-hist-propinas');
+        const figura13 = element.querySelector('#chart-figura-13');
+        const figura14 = element.querySelector('#chart-figura-14');
+        const figura15 = element.querySelector('#chart-figura-15');
+        const figura16 = element.querySelector('#chart-figura-16');
+        const figura17 = element.querySelector('#chart-figura-17');
+        const figura18 = element.querySelector('#chart-figura-18');
+        const figura20 = element.querySelector('#chart-figura-20');
+        const figura21 = element.querySelector('#chart-figura-21');
+        const figura22 = element.querySelector('#chart-figura-22');
 
         if (taxisMes && !this.loadedMaps.has('chart-taxis-mes')) {
             this.renderFigure('chart-taxis-mes', 'data/taxis_mes.json');
@@ -557,6 +616,42 @@ class NextStepApp {
 
         if (histPropinas && !this.loadedMaps.has('chart-hist-propinas')) {
             this.renderFigure('chart-hist-propinas', 'data/histograma_propinas.json');
+        }
+
+        if (figura13 && !this.loadedMaps.has('chart-figura-13')) {
+            this.renderFigure('chart-figura-13', 'data/figura_13.json');
+        }
+
+        if (figura14 && !this.loadedMaps.has('chart-figura-14')) {
+            this.renderFigure('chart-figura-14', 'data/figura_14.json');
+        }
+
+        if (figura15 && !this.loadedMaps.has('chart-figura-15')) {
+            this.renderFigure('chart-figura-15', 'data/figura_15.json');
+        }
+
+        if (figura16 && !this.loadedMaps.has('chart-figura-16')) {
+            this.renderFigure('chart-figura-16', 'data/figura_16.json');
+        }
+
+        if (figura17 && !this.loadedMaps.has('chart-figura-17')) {
+            this.renderFigure('chart-figura-17', 'data/figura_17.json');
+        }
+
+        if (figura18 && !this.loadedMaps.has('chart-figura-18')) {
+            this.renderFigure('chart-figura-18', 'data/figura_18.json');
+        }
+
+        if (figura20 && !this.loadedMaps.has('chart-figura-20')) {
+            this.renderFigure('chart-figura-20', 'data/figura_20.json');
+        }
+
+        if (figura21 && !this.loadedMaps.has('chart-figura-21')) {
+            this.renderFigure('chart-figura-21', 'data/figura_21.json');
+        }
+
+        if (figura22 && !this.loadedMaps.has('chart-figura-22')) {
+            this.renderFigure('chart-figura-22', 'data/figura_22.json');
         }
     }
 

@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+<body class="desarrollo-page">
 
     <nav class="navbar" role="navigation" aria-label="Navegación principal">
         <div class="logo">
@@ -53,7 +53,8 @@
                         <a href="#mta" class="nav-item">4.3 Incidencias (MTA)</a>
                         <a href="#latente" class="nav-item">4.4 Demanda latente</a>
                         <a href="#propinas" class="nav-item">4.5 Propinas</a>
-                        <a href="#otras" class="nav-item">4.6 Otras fuentes</a>
+                        <a href="#nba" class="nav-item">4.6 Impacto NBA</a>
+                        <a href="#trafico" class="nav-item">4.7 Tráfico</a>
                         <a href="#citas" class="nav-item">Citas</a>
                     </nav>
                 </aside>
@@ -213,11 +214,36 @@
                     <article id="latente" class="content-article hidden">
                         <div class="article-header">
                             <h2>4.4. Análisis de demanda latente</h2>
-                            <p class="article-subtitle">Dónde “no se pide” porque no se confía en la oferta</p>
+                            <p class="article-subtitle">Demanda observada vs. demanda real bajo tensión operativa</p>
                         </div>
 
                         <div class="article-content">
-                            <p class="lead-text">La demanda latente aparece cuando el usuario no solicita por baja disponibilidad percibida. Nuestro enfoque la hace visible midiendo cobertura efectiva, tiempos de espera y cambios de comportamiento tras redistribución anticipada. Esto permite estimar el “mercado invisible” que hoy no se materializa por falta de confianza en la oferta.</p>
+                            <p class="lead-text">Nuestro objetivo es predecir de la mejor forma posible la demanda para así poder estimar el número de vehículos necesarios para cubrirla. Para ello, se introduce el concepto de <strong>demanda latente</strong>, entendida como el volumen de viajes que podrían haberse realizado, pero que no llegaron a materializarse debido a restricciones del sistema, principalmente la falta de oferta disponible.</p>
+
+                            <p>En los datos originales únicamente se observa la <strong>demanda observada</strong>, correspondiente al número de viajes efectivamente realizados. Sin embargo, en situaciones de alta congestión o saturación del sistema, esta demanda observada puede infraestimar la demanda real existente. Por este motivo, resulta necesario aproximar la demanda latente para obtener una visión más completa del comportamiento del mercado.</p>
+
+                            <div class="innovation-highlight">
+                                <h4>Base metodológica</h4>
+                                <p>Como punto de partida se ha tomado el dataset de viajes de VTC, ya que incorpora el momento de petición del viaje. Combinando ese dato con la hora de inicio real del trayecto se obtiene el <strong>tiempo de espera</strong>. Además, se incorpora el <strong>precio del viaje</strong>, dado que las plataformas ajustan tarifas dinámicamente en función del equilibrio oferta‑demanda.</p>
+                            </div>
+
+                            <div class="insight-box">
+                                <h4>Técnica de estimación</h4>
+                                <ul class="feature-list">
+                                    <li>Cálculo de <strong>precio medio por milla</strong> por zona y hora</li>
+                                    <li>Cálculo de <strong>tiempo de espera medio</strong> por zona y hora</li>
+                                    <li>Comparación observación vs. referencia y extracción de <strong>excesos</strong> (solo desviación positiva)</li>
+                                    <li>Construcción de un <strong>factor de saturación</strong> por zona‑momento</li>
+                                    <li>Estimación final: demanda latente = demanda observada × factor de saturación</li>
+                                </ul>
+                            </div>
+
+                            <div class="problem-box warning">
+                                <h4>Restricción de coherencia</h4>
+                                <p>La demanda latente se define para ser siempre <strong>igual o superior</strong> a la demanda observada, evitando infraestimaciones en contextos de saturación.</p>
+                            </div>
+
+                            <p>De este modo, se obtiene una estimación de la demanda total más acorde con las condiciones reales del sistema, lo que permite mejorar la planificación operativa y la asignación eficiente de vehículos.</p>
                         </div>
                     </article>
 
@@ -257,14 +283,179 @@
                         </div>
                     </article>
 
-                    <article id="otras" class="content-article hidden">
+                    <article id="nba" class="content-article hidden">
                         <div class="article-header">
-                            <h2>4.6. Otras fuentes de datos</h2>
-                            <p class="article-subtitle">Eventos, tráfico y atributos demográficos</p>
+                            <h2>4.6. Análisis del impacto de los partidos de NBA</h2>
+                            <p class="article-subtitle">Efecto evento, elasticidad de la oferta y ventanas de captación</p>
                         </div>
 
                         <div class="article-content">
-                            <p class="lead-text">Además de las variables ya mencionadas, estamos trabajando con datos de eventos (aforo), tráfico (congestión) y proxies de residencia/trabajo por zona. Estos módulos están en iteración y validación para su incorporación en versiones futuras.</p>
+                            <p class="lead-text">Para garantizar la homogeneidad de la muestra, el análisis se circunscribe a febrero de 2024. Esta selección elimina sesgo estacional vacacional y excluye la fase de Playoffs (dinámica atípica). El estudio se focaliza en dos nodos críticos: <strong>Madison Square Garden</strong> (Manhattan) y <strong>Barclays Center</strong> (Brooklyn), aplicando una metodología de ventanas temporales con grupo de control robusto (días equivalentes sin partido).</p>
+
+                            <div class="card map-card figure-image-card">
+                                <div class="map-header">
+                                    <h3>🏟️ Figura 12 · Ubicación de estadios</h3>
+                                    <span class="map-tag taxi-tag">Contexto espacial</span>
+                                </div>
+                                <img src="images/maddisson_square.jpeg" alt="Ubicación de Madison Square Garden y Barclays Center" class="figure-image">
+                                <p class="map-caption">Figura 12. Ubicación de los estadios Madison Square Garden (azul) y Barclays Center (naranja).</p>
+                            </div>
+
+                            <h3 class="article-subsection">4.6.1 Dinámica temporal de la demanda: ciclo de tres ondas</h3>
+                            <div class="insight-box">
+                                <ul class="feature-list">
+                                    <li><strong>Fase Pre‑Partido:</strong> en las 3 horas previas, los <em>dropoffs</em> suben ~148% vs baseline. Se genera acumulación de vehículos vacíos tras dejar viajeros.</li>
+                                    <li><strong>Fase de Partido:</strong> los <em>pickups</em> aumentan ~81% durante el juego; la actividad no se detiene.</li>
+                                    <li><strong>Fase Post‑Partido:</strong> en las 3 horas posteriores, los <em>pickups</em> crecen ~53% adicional, con pico en la primera hora tras finalizar.</li>
+                                </ul>
+                            </div>
+
+                            <div class="features-grid" aria-label="Impacto NBA temporal">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>Pickups vs Dropoffs</h3>
+                                        <span class="map-tag uber-tag">Ventanas temporales</span>
+                                    </div>
+                                    <div id="chart-figura-13" style="width: 100%; height: 520px;"></div>
+                                    <p class="map-caption">Comparación de pickups y drop offs en ambos estadios.</p>
+                                </div>
+                            </div>
+
+                            <h3 class="article-subsection">4.6.2 Impacto diferencial por ubicación: Manhattan vs Brooklyn</h3>
+                            <p>La infraestructura urbana y la calidad del transporte público moderan la demanda privada. En Manhattan (MSG) el incremento de pickups es menor por alta conectividad; en Brooklyn (Barclays) el aumento es más intenso por mayor dependencia del transporte privado.</p>
+
+                            <div class="features-grid" aria-label="Comparativa por estadio">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3> MSG vs Barclays</h3>
+                                        <span class="map-tag taxi-tag">Elasticidad geográfica</span>
+                                    </div>
+                                    <div id="chart-figura-14" style="width: 100%; height: 500px;"></div>
+                                    <p class="map-caption">Comparación de pickups entre Madison Square Garden y Barclays Center.</p>
+                                </div>
+                            </div>
+
+                            <h3 class="article-subsection">4.6.3 Análisis competitivo: Taxi vs FHVHV</h3>
+                            <p>Aunque FHVHV lidera en volumen absoluto, los taxis tradicionales muestran resiliencia durante eventos masivos y crecimiento relativo superior bajo saturación de plataformas (tiempos de espera y precio dinámico).</p>
+
+                            <div class="features-grid" aria-label="Comparativa Taxi y FHVHV">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>Con vs sin evento</h3>
+                                        <span class="map-tag uber-tag">Actividad relativa</span>
+                                    </div>
+                                    <div id="chart-figura-15" style="width: 100%; height: 500px;"></div>
+                                    <p class="map-caption"> Comparación de mercados de pickups y drop offs entre taxis y FHVHV con y sin evento NBA.</p>
+                                </div>
+
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>Cuota de mercado</h3>
+                                        <span class="map-tag taxi-tag">Participación</span>
+                                    </div>
+                                    <div id="chart-figura-16" style="width: 100%; height: 440px;"></div>
+                                    <p class="map-caption"> Cuota de mercado entre taxis y FHVHV con y sin evento NBA.</p>
+                                </div>
+                            </div>
+
+                            <div class="problem-box warning">
+                                <h4>4.6.4 Conclusiones operativas</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Predictibilidad:</strong> “Partido NBA” es un predictor fiable (picos a -3h y +1h)</li>
+                                    <li><strong>Corrección geográfica:</strong> coeficientes de impacto mayores fuera de Manhattan</li>
+                                    <li><strong>Estrategia de flota:</strong> ventana crítica post‑partido para capturar demanda latente</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="trafico" class="content-article hidden">
+                        <div class="article-header">
+                            <h2>4.7. Análisis del tráfico</h2>
+                            <p class="article-subtitle">Congestión estructural, corredores críticos y priorización operativa</p>
+                        </div>
+
+                        <div class="article-content">
+                            <p class="lead-text">En este análisis se estudian 15.8 millones de viajes FHVHV en Nueva York (marzo de 2024) para identificar patrones estructurales de congestión y corredores críticos. Tras limpieza, se retiene el 91.65% del dataset (14.5M registros), excluyendo outliers de duración, distancia y velocidad, y derivando variables clave como velocidad media e índice de congestión local.</p>
+
+                            <h3 class="article-subsection">4.7.1 Estadísticas globales y congestión</h3>
+                            <p>La ciudad presenta saturación estructural severa: velocidad mediana de 11.47 mph frente a un flujo libre teórico de 25 mph. Para comparar zonas heterogéneas se usa un indicador normalizado con referencia local (V85), definiendo:</p>
+                            <div class="insight-box">
+                                <p><strong>Congestión_Local_Pct = (Vref − Vobs) / Vref × 100</strong></p>
+                            </div>
+
+                            <h3 class="article-subsection">4.7.2 Perfil temporal: el ciclo de la ciudad</h3>
+                            <p>Se distinguen tres regímenes: flujo libre nocturno (00:00–05:00), meseta de saturación laboral (07:00–19:00) y recuperación gradual nocturna (20:00–23:59), con nadir de velocidad alrededor de las 16:00.</p>
+
+                            <div class="features-grid" aria-label="Perfil temporal de tráfico">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>Velocidad vs congestión</h3>
+                                        <span class="map-tag uber-tag">Ciclo horario</span>
+                                    </div>
+                                    <div id="chart-figura-17" style="width: 100%; height: 520px;"></div>
+                                    <p class="map-caption">Figura 17. Dinámica horaria comparando velocidad (mph), congestión y hora del día.</p>
+                                </div>
+
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3></h3> Heatmap semana-hora</h3>
+                                        <span class="map-tag taxi-tag">Patrón semanal</span>
+                                    </div>
+                                    <div id="chart-figura-18" style="width: 100%; height: 430px;"></div>
+                                    <p class="map-caption">Figura 18. Heatmap de congestión por hora y día de la semana.</p>
+                                </div>
+                            </div>
+
+                            <h3 class="article-subsection">4.7.3 Zonas críticas y análisis espacial</h3>
+                            <p>La ineficiencia se concentra en Manhattan y en nodos de conexión con puentes del East River, donde la demanda excede sistemáticamente la capacidad de descarga local.</p>
+
+                            <div class="card map-card">
+                                <div class="map-header">
+                                    <h3> Zonas más congestionadas</h3>
+                                    <span class="map-tag uber-tag">Ranking espacial</span>
+                                </div>
+                                <div class="figure-placeholder">
+                                    <p>Figura 19 en preparación visual. El ranking de zonas críticas se detalla en el texto analítico de esta sección.</p>
+                                </div>
+                            </div>
+
+                            <h3 class="article-subsection">4.7.4 Volumen vs velocidad: paradoja de infraestructura</h3>
+                            <p>Se confirma una disociación entre volumen y velocidad: corredores de alta capacidad (LGA/JFK) sostienen throughput elevado con mejor velocidad, mientras micro‑redes del grid central colapsan con incrementos marginales de demanda.</p>
+
+                            <div class="features-grid" aria-label="Volumen y velocidad">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>Volumen vs velocidad</h3>
+                                        <span class="map-tag taxi-tag">Color = congestión</span>
+                                    </div>
+                                    <div id="chart-figura-20" style="width: 100%; height: 560px;"></div>
+                                    <p class="map-caption">Figura 20. Número de viajes frente a velocidad mediana (color: congestión; tamaño: longitud del viaje).</p>
+                                </div>
+                            </div>
+
+                            <h3 class="article-subsection">4.7.5 Corredores OD y score de impacto</h3>
+                            <p>Se prioriza con un score de impacto: <strong>Score = Vol × %Cong</strong>. El análisis identifica corredores intra‑Manhattan de baja eficiencia temporal y alta fragilidad sistémica.</p>
+
+                            <div class="features-grid" aria-label="Corredores críticos">
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>Distancia vs velocidad</h3>
+                                        <span class="map-tag uber-tag">Top impacto</span>
+                                    </div>
+                                    <div id="chart-figura-21" style="width: 100%; height: 560px;"></div>
+                                    <p class="map-caption">Figura 21. Velocidad frente a distancia en corredores intra‑Manhattan (tamaño = volumen).</p>
+                                </div>
+
+                                <div class="card map-card">
+                                    <div class="map-header">
+                                        <h3>Corredores críticos</h3>
+                                        <span class="map-tag taxi-tag">Boxplot operativo</span>
+                                    </div>
+                                    <div id="chart-figura-22" style="width: 100%; height: 520px;"></div>
+                                    <p class="map-caption">Figura 22. Boxplot de Midtown Center–Times Sq y Penn Station–Garment District.</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
 
