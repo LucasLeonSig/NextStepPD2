@@ -2447,6 +2447,116 @@ footer {
     font-weight: 600;
 }
 
+/* Tabla financiera (Mercado) */
+.mercado-page .table-responsive {
+    margin-top: var(--spacing-md);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    overflow-x: auto;
+    overflow-y: hidden;
+    background:
+        radial-gradient(circle at top right, rgba(255, 193, 7, 0.14), transparent 55%),
+        linear-gradient(145deg, rgba(24, 30, 38, 0.96) 0%, rgba(15, 20, 27, 0.94) 100%);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.mercado-page .market-table {
+    width: 100%;
+    min-width: 860px;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: var(--text-main);
+}
+
+.mercado-page .market-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 143, 0, 0.14) 100%);
+    color: #fff7dc;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.35);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.mercado-page .market-table thead th:first-child {
+    text-align: left;
+    border-top-left-radius: 18px;
+}
+
+.mercado-page .market-table thead th:last-child {
+    border-top-right-radius: 18px;
+}
+
+.mercado-page .market-table tbody td {
+    padding: 0.95rem 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: right;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.mercado-page .market-table tbody td:first-child {
+    text-align: left;
+    color: var(--text-accent);
+    font-weight: 600;
+}
+
+.mercado-page .market-table tbody tr {
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.mercado-page .market-table tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.mercado-page .market-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.mercado-page .market-table tbody tr:hover {
+    background: rgba(139, 92, 246, 0.14);
+}
+
+.mercado-page .market-table tbody tr:nth-child(5) {
+    background: linear-gradient(90deg, rgba(255, 193, 7, 0.16) 0%, rgba(255, 193, 7, 0.07) 100%);
+}
+
+.mercado-page .market-table tbody tr:nth-child(5) td {
+    color: #ffe8a3;
+    font-weight: 800;
+    border-bottom-color: rgba(255, 193, 7, 0.35);
+}
+
+.mercado-page .market-table tbody tr:nth-child(7) {
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.08) 100%);
+}
+
+.mercado-page .market-table tbody tr:nth-child(7) td {
+    color: #b7ffdc;
+    font-weight: 700;
+}
+
+.mercado-page .market-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 18px;
+}
+
+.mercado-page .market-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 18px;
+}
+
+.mercado-page .market-table td strong,
+.mercado-page .market-table th strong {
+    font-weight: 800;
+}
+
 .mercado-page .cost-breakdown {
     margin-top: var(--spacing-2xl);
     padding: var(--spacing-xl);
@@ -2543,6 +2653,25 @@ footer {
 .mercado-page .roi-highlight p {
     margin-bottom: 0;
     color: var(--text-main);
+}
+
+@media (max-width: 900px) {
+    .mercado-page .table-responsive {
+        border-radius: 14px;
+    }
+
+    .mercado-page .market-table {
+        min-width: 700px;
+    }
+
+    .mercado-page .market-table thead th,
+    .mercado-page .market-table tbody td {
+        padding: 0.8rem 0.85rem;
+    }
+
+    .mercado-page .market-table thead th {
+        font-size: 0.72rem;
+    }
 }
 
 /* Citas y navegación inferior */
