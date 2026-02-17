@@ -3781,6 +3781,30 @@ footer {
 }
 
 /* ============================================
+   VIDEO PROMOCIONAL (Index.html)
+   ============================================ */
+.promo-video-section {
+    padding: clamp(1.25rem, 4vw, 2.4rem) 0 clamp(1.6rem, 4vw, 2.6rem);
+    background:
+        linear-gradient(to bottom, rgba(11, 14, 17, 0) 0%, #000 18%, #000 82%, rgba(11, 14, 17, 0) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-video {
+    display: block;
+    width: min(100vw, 1200px);
+    max-height: 72vh;
+    margin: 0 auto;
+    object-fit: contain;
+    background: #000;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+}
+
+/* ============================================
    CALCULATOR SECTION (Index.html)
    ============================================ */
 .calculator-section {
@@ -4138,6 +4162,11 @@ footer {
     .comparison-text {
         padding: var(--spacing-lg);
     }
+
+    .promo-video-section {
+        padding-top: var(--spacing-lg);
+        padding-bottom: var(--spacing-xl);
+    }
 }
 
 @media (max-width: 480px) {
@@ -4171,6 +4200,10 @@ footer {
     
     .result-display h3 {
         font-size: 2rem;
+    }
+
+    .promo-video {
+        max-height: 62vh;
     }
 
     
