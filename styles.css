@@ -3787,16 +3787,17 @@ footer {
     padding: clamp(1.25rem, 4vw, 2.4rem) 0 clamp(1.6rem, 4vw, 2.6rem);
     background:
         linear-gradient(to bottom, rgba(11, 14, 17, 0) 0%, #000 18%, #000 82%, rgba(11, 14, 17, 0) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
+    width: 100%;
 }
 
 .promo-video {
     display: block;
-    width: min(100vw, 1200px);
+    width: min(92vw, 1200px);
     max-height: 72vh;
-    margin: 0 auto;
+    margin-inline: auto;
+    justify-self: center;
     object-fit: contain;
     background: #000;
     border: 0;
